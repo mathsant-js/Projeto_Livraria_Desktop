@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
-package projeto_livraria_desktop;
+package controller;
 
+import conexao.Conexao;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,6 +21,10 @@ public class Main extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        Conexao clientConnection = new Conexao();
+        clientConnection.connect();
+        
+        
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
