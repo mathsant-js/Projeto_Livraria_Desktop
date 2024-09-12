@@ -8,7 +8,7 @@ import javafx.scene.control.ButtonType;
 
 public class Conexao {
     final private String driver ="com.mysql.jdbc.Driver";
-    final private String url = "jdbc:mysql://127.0.0.1/db_livrari";
+    final private String url = "jdbc:mysql://127.0.0.1/db_livraria";
     final private String usuario = "root";
     final private String senha = "";
     private Connection connection;
