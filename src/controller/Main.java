@@ -8,6 +8,8 @@ import conexao.Conexao;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -20,11 +22,18 @@ import javafx.stage.Stage;
 public class Main extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
         Conexao clientConnection = new Conexao();
         clientConnection.connect();
         
+        Parent root = FXMLLoader.load(getClass().getResource( "teste.fxml" ) );
+        Scene scene = new Scene(root);
         
+        primaryStage.setTitle("Tela Inicial");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        
+        /* 
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
@@ -41,6 +50,7 @@ public class Main extends Application {
         Scene scene = new Scene(root, 300, 250);
         
         primaryStage.setTitle("Hello World!");
+        */
         primaryStage.setScene(scene);
         primaryStage.show();
     }
