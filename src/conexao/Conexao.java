@@ -8,7 +8,7 @@ import javafx.scene.control.ButtonType;
 
 public class Conexao {
     final private String driver ="com.mysql.jdbc.Driver";
-    final private String url = "jdbc:mysql://127.0.0.1/db_livraria";
+    final private String url = "jdbc:mysql://127.0.0.1/db_livrari";
     final private String usuario = "root";
     final private String senha = "";
     private Connection connection;
@@ -31,6 +31,7 @@ public class Conexao {
             alert.setHeaderText("Driver não localizado!");
             alert.setContentText(Driver.toString());
             alert.showAndWait();
+            System.exit(0);
             
             result = false;
         } catch (SQLException Fonte) {
@@ -39,7 +40,7 @@ public class Conexao {
             alert.setHeaderText("Fonte de dados não encontrada!");
             alert.setContentText(Fonte.toString());
             alert.showAndWait();
-
+            System.exit(0);
             result = false;
         }
         return result;
