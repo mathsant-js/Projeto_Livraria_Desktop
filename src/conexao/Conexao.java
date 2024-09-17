@@ -20,11 +20,6 @@ public class Conexao {
         try {
             Class.forName(driver);
             connection = DriverManager.getConnection(url, usuario, senha);
-            
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Mensagem do Programa");
-            alert.setHeaderText("Conexão Estabelecida!");
-            alert.showAndWait();
         } catch (ClassNotFoundException Driver) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");

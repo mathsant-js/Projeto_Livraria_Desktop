@@ -26,10 +26,10 @@ public class Main extends Application {
         Conexao clientConnection = new Conexao();
         clientConnection.connect();
         
-        Parent root = FXMLLoader.load(getClass().getResource( "teste.fxml" ) );
+        Parent root = FXMLLoader.load(getClass().getResource( "TelaLogin.fxml" ) );
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("Tela Inicial");
+        primaryStage.setTitle("Tela de Login");
         primaryStage.setScene(scene);
         primaryStage.show();
         
