@@ -90,4 +90,8 @@ public class TelaLoginController implements Initializable {
         }
     }
     
+    public void onMouseDragOverBtnLogin () {
+        
+    }
+    
 }

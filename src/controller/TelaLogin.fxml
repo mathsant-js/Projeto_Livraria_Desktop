@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +17,10 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="campoNome" layoutX="33.0" layoutY="122.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="57.0" prefWidth="622.0" promptText="Nome completo..." AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
+      <TextField fx:id="campoNome" layoutX="33.0" layoutY="122.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="57.0" prefWidth="622.0" promptText="Nome completo..." AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
       <Label fx:id="rotuloNome" layoutX="31.0" layoutY="82.0" prefHeight="32.0" prefWidth="169.0" text="Digite seu nome:" textFill="WHITE">
          <font>
             <Font size="22.0" />
@@ -27,8 +31,11 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <PasswordField fx:id="campoSenha" layoutX="33.0" layoutY="243.0" prefHeight="57.0" prefWidth="622.0" promptText="Senha" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
-      <StackPane layoutX="245.0" layoutY="288.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="242.0">
+      <PasswordField fx:id="campoSenha" layoutX="33.0" layoutY="243.0" prefHeight="57.0" prefWidth="622.0" promptText="Senha" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0">
+         <font>
+            <Font size="20.0" />
+         </font></PasswordField>
+      <StackPane layoutX="247.0" layoutY="376.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="81.0" prefWidth="195.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="245.0">
          <children>
             <Button fx:id="botaoEntrar" alignment="CENTER" contentDisplay="CENTER" maxHeight="57.0" maxWidth="180.0" minHeight="57.0" minWidth="179.0" mnemonicParsing="false" onAction="#botaoEntrarAction" prefHeight="57.0" prefWidth="179.0" style="-fx-background-color: FF6600;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -37,6 +44,11 @@
             </Button>
          </children>
       </StackPane>
+      <Hyperlink layoutX="33.0" layoutY="324.0" text="Esqueceu a sua senha? Contate-nos" textFill="#ff6600">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
    </children>
    <padding>
       <Insets top="10.0" />
