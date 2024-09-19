@@ -1,35 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="265.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
+<AnchorPane id="AnchorPane" prefHeight="435.0" prefWidth="687.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
    <children>
-      <Label fx:id="tituloLogin" layoutX="140.0" layoutY="14.0" text="Bem-vindo de volta!">
+      <Label fx:id="tituloLogin" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="28.0" prefHeight="35.0" prefWidth="218.0" text="Bem-vindo!" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="234.0">
          <font>
-            <Font name="Dubai Regular" size="18.0" />
+            <Font size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="campoNome" layoutX="37.0" layoutY="85.0" prefHeight="32.0" prefWidth="351.0" promptText="Nome completo..." />
-      <Label fx:id="rotuloNome" layoutX="37.0" layoutY="63.0" text="Digite seu nome:">
+      <TextField fx:id="campoNome" layoutX="33.0" layoutY="122.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="57.0" prefWidth="622.0" promptText="Nome completo..." AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
+      <Label fx:id="rotuloNome" layoutX="31.0" layoutY="82.0" prefHeight="32.0" prefWidth="169.0" text="Digite seu nome:" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="rotuloSenha" layoutX="37.0" layoutY="134.0" text="Digite sua senha:">
+      <Label fx:id="rotuloSenha" layoutX="33.0" layoutY="203.0" text="Digite sua senha:" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <PasswordField fx:id="campoSenha" layoutX="37.0" layoutY="156.0" prefHeight="32.0" prefWidth="351.0" promptText="Senha" />
-      <Button fx:id="botaoEntrar" layoutX="176.0" layoutY="207.0" mnemonicParsing="false" onAction="#botaoEntrarAction" prefHeight="25.0" prefWidth="73.0" text="Entrar">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <PasswordField fx:id="campoSenha" layoutX="33.0" layoutY="243.0" prefHeight="57.0" prefWidth="622.0" promptText="Senha" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0" />
+      <StackPane layoutX="245.0" layoutY="288.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="242.0">
+         <children>
+            <Button fx:id="botaoEntrar" alignment="CENTER" contentDisplay="CENTER" maxHeight="57.0" maxWidth="180.0" minHeight="57.0" minWidth="179.0" mnemonicParsing="false" onAction="#botaoEntrarAction" prefHeight="57.0" prefWidth="179.0" style="-fx-background-color: FF6600;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </StackPane>
    </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
 </AnchorPane>

@@ -31,6 +31,7 @@ public class Main extends Application {
         
         primaryStage.setTitle("Tela de Login");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
         
         /* 
