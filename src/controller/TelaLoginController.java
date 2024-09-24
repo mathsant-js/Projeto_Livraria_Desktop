@@ -5,7 +5,10 @@
 package controller;
 
 import conexao.Conexao;
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -88,6 +91,11 @@ public class TelaLoginController implements Initializable {
             alert.setContentText(error.toString());
             alert.showAndWait();
         }
+    }
+    
+    @FXML
+    void openSuportLink() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("https://www.gmail.com"));
     }
     
     public void onMouseDragOverBtnLogin () {
