@@ -55,7 +55,7 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="534.0" prefWidth="652.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="80.0" layoutY="147.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="89.0" text="Clientes">
+            <Button fx:id="btnClientes" layoutX="80.0" layoutY="147.0" mnemonicParsing="false" onAction="#btnClientes" prefHeight="37.0" prefWidth="89.0" text="Clientes">
                <font>
                   <Font size="15.0" />
                </font>

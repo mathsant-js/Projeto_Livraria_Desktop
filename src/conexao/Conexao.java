@@ -15,7 +15,7 @@ public class Conexao {
     public Statement statement;
     public ResultSet resultset;
     
-    public boolean connect() {
+    public Connection connect() {
         boolean result = true;
         try {
             Class.forName(driver);
@@ -38,7 +38,7 @@ public class Conexao {
             System.exit(0);
             result = false;
         }
-        return result;
+        return connection;
     }
     
     public void disconnect() {
