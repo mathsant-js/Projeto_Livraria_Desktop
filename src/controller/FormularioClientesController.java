@@ -22,7 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Cliente;
-import model.ClienteDAO;
+import model.ClassesDAO.ClienteDAO;
 
 /**
  * FXML Controller class
