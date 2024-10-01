@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.*;
+
 /**
  *
  * @author Admin
@@ -12,15 +14,17 @@ public class Cliente {
     private int codCli;
     private String nomeCliente;
     private String clienteCpf;
-    private String dtNascCliente;
+    private Date dtNascCliente;
+    private String senhaCliente;
     
-    public Cliente (Integer codCli, String nomeCliente, String clienteCpf, String dtNascCliente) {
+    public Cliente (Integer codCli, String nomeCliente, String clienteCpf, Date dtNascCliente, String senhaCliente) {
         this.codCli = codCli;
         this.nomeCliente = nomeCliente;
         this.clienteCpf = clienteCpf;
         this.dtNascCliente = dtNascCliente;
+        this.senhaCliente = senhaCliente;
     }
-
+    
     /**
      * @return the codCli
      */
@@ -66,16 +70,28 @@ public class Cliente {
     /**
      * @return the dtNascCliente
      */
-    public String getDtNascCliente() {
+    public Date getDtNascCliente() {
         return dtNascCliente;
     }
 
     /**
      * @param dtNascCliente the dtNascCliente to set
      */
-    public void setDtNascCliente(String dtNascCliente) {
+    public void setDtNascCliente(Date dtNascCliente) {
         this.dtNascCliente = dtNascCliente;
     }
-    
-    
+
+    /**
+     * @return the senhaCliente
+     */
+    public String getSenhaCliente() {
+        return senhaCliente;
+    }
+
+    /**
+     * @param senhaCliente the senhaCliente to set
+     */
+    public void setSenhaCliente(String senhaCliente) {
+        this.senhaCliente = senhaCliente;
+    }
 }

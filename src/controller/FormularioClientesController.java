@@ -23,6 +23,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.ClassesDAO.ClienteDAO;
+import java.sql.*;
 
 /**
  * FXML Controller class
@@ -54,7 +55,6 @@ public class FormularioClientesController implements Initializable {
         carregarDadosCliente();
     }    
     
-    @FXML
     private void carregarDadosCliente() {
         ClienteDAO clienteDAO = new ClienteDAO();
         try {

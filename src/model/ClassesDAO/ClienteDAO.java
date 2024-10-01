@@ -6,9 +6,7 @@ package model.ClassesDAO;
 
 import conexao.Conexao;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.Cliente;
@@ -32,7 +30,8 @@ public class ClienteDAO {
                     rs.getInt("cod_cliente"),
                     rs.getString("nome_cliente"),
                     rs.getString("cpf_cliente"),
-                    rs.getString("data_nascimento_cliente")
+                    rs.getDate("data_nascimento_cliente"),
+                    rs.getString("senha_cliente")
                 );
                 clientes.add(cliente);
             }
