@@ -35,10 +35,6 @@ public class FormularioClientesController implements Initializable {
     @FXML
     private TableView<Cliente> tabelaClientes;
     @FXML
-    private Color x4;
-    @FXML
-    private Font x3;
-    @FXML
     private TableColumn<Cliente, Integer> codCli;
     @FXML
     private TableColumn<Cliente, String> nomeCliente;

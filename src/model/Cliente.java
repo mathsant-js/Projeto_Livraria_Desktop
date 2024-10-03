@@ -24,6 +24,10 @@ public class Cliente {
         this.dtNascCliente = dtNascCliente;
         this.senhaCliente = senhaCliente;
     }
+
+    public Cliente(int aInt, String string, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     /**
      * @return the codCli
