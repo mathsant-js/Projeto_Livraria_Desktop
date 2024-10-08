@@ -8,7 +8,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 */
 
 .root {
-    -fx-background-color: #262626;
+    -fx-background-color: #373737;
 }
 
 .menu-bar {
@@ -17,6 +17,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .table-view {
     -fx-font-size: 10px;
+    -fx-background-color: #575757;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 0px;
+}
+
+.table-view:focused {
+    -fx-border-color: transparent;
+    -fx-border-width: 0px
+}
+
+.table-view .column-header {
+    -fx-background-color: #FF6600;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 0px 1px 0px 0px;
+}
+
+#dtNascCliente {
+    -fx-border-width: 0px 0px 0px 0px;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-row-cell:focused {
+    -fx-background-color: #121212;
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #575757;
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #484848;
+    -fx-text-fill: #FFFFFF;
 }
 
 .label {
@@ -34,6 +71,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .date-picker {
     -fx-border-style: none;
+    -fx-border-color: transparent;
     -fx-background-color: #262626;
     -fx-text-fill: #000000;
 }
