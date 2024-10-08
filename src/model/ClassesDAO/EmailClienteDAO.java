@@ -37,7 +37,7 @@ public class EmailClienteDAO {
                 );
                 EmailCliente emailClientes = new EmailCliente (
                         cliente,
-                            rs.getString("emailCliente")
+                            rs.getString("email_cliente")
                 );
                 emailCliente.add(emailClientes);
             }
