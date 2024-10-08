@@ -40,7 +40,7 @@ public class EnderecoClienteDAO {
                 );
                 EnderecoCliente enderecoClientes = new EnderecoCliente (
                         cliente,
-                            rs.getString("emailCliente")
+                            rs.getString("endereco_cliente")
                 );
                 enderecoCliente.add(enderecoClientes);
             }
