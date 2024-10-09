@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.*;
+
 /**
  *
  * @author Matheus Santana
@@ -12,16 +14,16 @@ public class Autor {
     private int codAutor;
     private String nomeAutor;
     private String biografiaAutor;
-    private String dataNascimentoAutor;
-    private String dataFalecimentoAutor;
+    private Date dataNascimentoAutor;
+    private Date dataFalecimentoAutor;
     private String nacionalidadeAutor;
     
     public Autor (
         int codAutor,
         String nomeAutor,
         String biografiaAutor, 
-        String dataNascimentoAutor,
-        String dataFalecimentoAutor,
+        Date dataNascimentoAutor,
+        Date dataFalecimentoAutor,
         String nacionalidadeAutor
     ) {
         this.codAutor = codAutor;
@@ -77,28 +79,28 @@ public class Autor {
     /**
      * @return the dataNascimentoAutor
      */
-    public String getDataNascimentoAutor() {
+    public Date getDataNascimentoAutor() {
         return dataNascimentoAutor;
     }
 
     /**
      * @param dataNascimentoAutor the dataNascimentoAutor to set
      */
-    public void setDataNascimentoAutor(String dataNascimentoAutor) {
+    public void setDataNascimentoAutor(Date dataNascimentoAutor) {
         this.dataNascimentoAutor = dataNascimentoAutor;
     }
 
     /**
      * @return the dataFalecimentoAutor
      */
-    public String getDataFalecimentoAutor() {
+    public Date getDataFalecimentoAutor() {
         return dataFalecimentoAutor;
     }
 
     /**
      * @param dataFalecimentoAutor the dataFalecimentoAutor to set
      */
-    public void setDataFalecimentoAutor(String dataFalecimentoAutor) {
+    public void setDataFalecimentoAutor(Date dataFalecimentoAutor) {
         this.dataFalecimentoAutor = dataFalecimentoAutor;
     }
 

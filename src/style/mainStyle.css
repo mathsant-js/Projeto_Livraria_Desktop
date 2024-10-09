@@ -16,7 +16,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .table-view {
-    -fx-font-size: 10px;
     -fx-background-color: #575757;
     -fx-text-fill: #FFFFFF;
     -fx-border-width: 0px;
@@ -58,6 +57,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .label {
     -fx-text-fill: #FFFFFF;
+}
+
+#tituloPag {
+    -fx-text-fill: #FF6600;
 }
 
 .text-field {

@@ -21,51 +21,48 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Cliente;
-import model.ClassesDAO.ClienteDAO;
+import model.Genero;
+import model.ClassesDAO.GeneroDAO;
 import java.sql.*;
 import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
  *
- * @author Admin
+ * @author lucas
  */
-public class FormularioClientesController implements Initializable {
-
-    @FXML
-    private TableView<Cliente> tabelaClientes;
-    @FXML
-    private TableColumn<Cliente, Integer> codCli;
-    @FXML
-    private TableColumn<Cliente, String> nomeCliente;
-    @FXML
-    private TableColumn<Cliente, String> dtNascCliente;
-    @FXML
-    private TableColumn<Cliente, String> clienteCpf;
+public class FormularioGenerosController implements Initializable {
     @FXML
     private Label tituloPag;
+    @FXML
+    private TableView<Genero> tabelaGeneros;
+    @FXML
+    private TableColumn<Genero, Integer> codGenero;
+    @FXML
+    private TableColumn<Genero, String> nomeGenero;
+    @FXML
+    private TableColumn<Genero, String> descricaoGenero;
 
     /**
      * Initializes the controller class.
      */
-    
+
     public void initialize(URL url, ResourceBundle rb) {
-        carregarDadosCliente();
-    }    
-    
-    private void carregarDadosCliente() {
-        ClienteDAO clienteDAO = new ClienteDAO();
+        carregarDadosGenero();
+    }
+
+    private void carregarDadosGenero() {
+        GeneroDAO generoDAO = new GeneroDAO();
         try {
-            List<Cliente> clientes = clienteDAO.listarTodos();
-            ObservableList<Cliente> observableList = FXCollections.observableArrayList(clientes);
-            tabelaClientes.setItems(observableList);
-            codCli.setCellValueFactory(new PropertyValueFactory<>("codCli"));
-            nomeCliente.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
-            clienteCpf.setCellValueFactory(new PropertyValueFactory<>("clienteCpf"));
-            dtNascCliente.setCellValueFactory(new PropertyValueFactory<>("dtNascCliente"));
+            List<Genero> generos = generoDAO.listarTodosGeneros();
+            ObservableList<Genero> observableList = FXCollections.observableArrayList(generos);
+            tabelaGeneros.setItems(observableList);
+            codGenero.setCellValueFactory(new PropertyValueFactory<>("codGenero"));
+            nomeGenero.setCellValueFactory(new PropertyValueFactory<>("nomeGenero"));
+            descricaoGenero.setCellValueFactory(new PropertyValueFactory<>("descricaoGenero"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+    
 }

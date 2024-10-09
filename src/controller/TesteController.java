@@ -7,6 +7,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +25,12 @@ public class TesteController implements Initializable {
 
     @FXML
     private Button btnClientes;
+    @FXML
+    private Button btnAutores;
+    @FXML
+    private Button btnEditoras;
+    @FXML
+    private Button btnGeneros;
 
     /**
      * Initializes the controller class.
@@ -39,11 +46,53 @@ public class TesteController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource( "FormularioClientes.fxml" ) );
         Scene scene = new Scene(root);
 
-                newStage.setTitle("Tela Clientes");
-                newStage.setScene(scene);
-                newStage.show();
-                
-                Stage currentStage = (Stage) btnClientes.getScene().getWindow();
-                currentStage.close();
+        newStage.setTitle("Tela Clientes");
+        newStage.setScene(scene);
+        newStage.show();
+
+        Stage currentStage = (Stage) btnClientes.getScene().getWindow();
+        currentStage.close();
+    }
+    
+    @FXML
+    public void btnAutores() throws IOException{
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource( "FormularioAutores.fxml" ) );
+        Scene scene = new Scene(root);
+
+        newStage.setTitle("Tela Autores");
+        newStage.setScene(scene);
+        newStage.show();
+
+        Stage currentStage = (Stage) btnAutores.getScene().getWindow();
+        currentStage.close();
+    }
+    
+    @FXML
+    public void btnEditoras() throws IOException{
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource( "FormularioEditoras.fxml" ) );
+        Scene scene = new Scene(root);
+
+        newStage.setTitle("Tela Editoras");
+        newStage.setScene(scene);
+        newStage.show();
+
+        Stage currentStage = (Stage) btnEditoras.getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    private void btnGeneros() throws IOException{
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource( "FormularioGeneros.fxml" ) );
+        Scene scene = new Scene(root);
+
+        newStage.setTitle("Tela Gêneros");
+        newStage.setScene(scene);
+        newStage.show();
+
+        Stage currentStage = (Stage) btnGeneros.getScene().getWindow();
+        currentStage.close();
     }
 }

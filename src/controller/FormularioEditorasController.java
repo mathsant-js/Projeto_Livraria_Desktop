@@ -21,49 +21,46 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Cliente;
-import model.ClassesDAO.ClienteDAO;
+import model.Editora;
+import model.ClassesDAO.EditoraDAO;
 import java.sql.*;
 import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
  *
- * @author Admin
+ * @author lucas
  */
-public class FormularioClientesController implements Initializable {
+public class FormularioEditorasController implements Initializable {
 
     @FXML
-    private TableView<Cliente> tabelaClientes;
-    @FXML
-    private TableColumn<Cliente, Integer> codCli;
-    @FXML
-    private TableColumn<Cliente, String> nomeCliente;
-    @FXML
-    private TableColumn<Cliente, String> dtNascCliente;
-    @FXML
-    private TableColumn<Cliente, String> clienteCpf;
-    @FXML
     private Label tituloPag;
+    @FXML
+    private TableView<Editora> tabelaEditoras;
+    @FXML
+    private TableColumn<Editora, Integer> codEditora;
+    @FXML
+    private TableColumn<Editora, String> nomeEditora;
+    @FXML
+    private TableColumn<Editora, String> enderecoEditora;
 
     /**
      * Initializes the controller class.
      */
     
     public void initialize(URL url, ResourceBundle rb) {
-        carregarDadosCliente();
+        carregarDadosEditora();
     }    
     
-    private void carregarDadosCliente() {
-        ClienteDAO clienteDAO = new ClienteDAO();
+    private void carregarDadosEditora() {
+        EditoraDAO editoraDAO = new EditoraDAO();
         try {
-            List<Cliente> clientes = clienteDAO.listarTodos();
-            ObservableList<Cliente> observableList = FXCollections.observableArrayList(clientes);
-            tabelaClientes.setItems(observableList);
-            codCli.setCellValueFactory(new PropertyValueFactory<>("codCli"));
-            nomeCliente.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
-            clienteCpf.setCellValueFactory(new PropertyValueFactory<>("clienteCpf"));
-            dtNascCliente.setCellValueFactory(new PropertyValueFactory<>("dtNascCliente"));
+            List<Editora> editoras = editoraDAO.listarTodosEditoras();
+            ObservableList<Editora> observableList = FXCollections.observableArrayList(editoras);
+            tabelaEditoras.setItems(observableList);
+            codEditora.setCellValueFactory(new PropertyValueFactory<>("codEditora"));
+            nomeEditora.setCellValueFactory(new PropertyValueFactory<>("nomeEditora"));
+            enderecoEditora.setCellValueFactory(new PropertyValueFactory<>("enderecoEditora"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

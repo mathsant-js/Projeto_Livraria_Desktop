@@ -21,51 +21,52 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Cliente;
-import model.ClassesDAO.ClienteDAO;
+import model.Autor;
+import model.ClassesDAO.AutorDAO;
 import java.sql.*;
 import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
  *
- * @author Admin
+ * @author lucas
  */
-public class FormularioClientesController implements Initializable {
+public class FormularioAutoresController implements Initializable {
 
     @FXML
-    private TableView<Cliente> tabelaClientes;
-    @FXML
-    private TableColumn<Cliente, Integer> codCli;
-    @FXML
-    private TableColumn<Cliente, String> nomeCliente;
-    @FXML
-    private TableColumn<Cliente, String> dtNascCliente;
-    @FXML
-    private TableColumn<Cliente, String> clienteCpf;
+    private TableView<Autor> tabelaClientes;
     @FXML
     private Label tituloPag;
+    @FXML
+    private TableColumn<Autor, Integer> codAutor;
+    @FXML
+    private TableColumn<Autor, String> nomeAutor;
+    @FXML
+    private TableColumn<Autor, String> nacionalidadeAutor;
+    @FXML
+    private TableColumn<Autor, String> dtNascAutor;
 
     /**
      * Initializes the controller class.
      */
     
     public void initialize(URL url, ResourceBundle rb) {
-        carregarDadosCliente();
-    }    
-    
-    private void carregarDadosCliente() {
-        ClienteDAO clienteDAO = new ClienteDAO();
+        carregarDadosAutor();
+    }
+
+    private void carregarDadosAutor() {
+        AutorDAO autorDAO = new AutorDAO();
         try {
-            List<Cliente> clientes = clienteDAO.listarTodos();
-            ObservableList<Cliente> observableList = FXCollections.observableArrayList(clientes);
+            List<Autor> autores = autorDAO.listarTodosAutores();
+            ObservableList<Autor> observableList = FXCollections.observableArrayList(autores);
             tabelaClientes.setItems(observableList);
-            codCli.setCellValueFactory(new PropertyValueFactory<>("codCli"));
-            nomeCliente.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
-            clienteCpf.setCellValueFactory(new PropertyValueFactory<>("clienteCpf"));
-            dtNascCliente.setCellValueFactory(new PropertyValueFactory<>("dtNascCliente"));
+            codAutor.setCellValueFactory(new PropertyValueFactory<>("codAutor"));
+            nomeAutor.setCellValueFactory(new PropertyValueFactory<>("nomeAutor"));
+            nacionalidadeAutor.setCellValueFactory(new PropertyValueFactory<>("nacionalidadeAutor"));
+            dtNascAutor.setCellValueFactory(new PropertyValueFactory<>("dataNascimentoAutor"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }    
+    
 }

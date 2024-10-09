@@ -65,17 +65,17 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="80.0" layoutY="259.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="89.0" text="Autores">
+            <Button fx:id="btnAutores" layoutX="80.0" layoutY="259.0" mnemonicParsing="false" onAction="#btnAutores" prefHeight="37.0" prefWidth="89.0" text="Autores">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="80.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="89.0" text="Editoras">
+            <Button fx:id="btnEditoras" layoutX="80.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnEditoras" prefHeight="37.0" prefWidth="89.0" text="Editoras">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="80.0" layoutY="368.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="89.0" text="Gêneros">
+            <Button fx:id="btnGeneros" layoutX="80.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnGeneros" prefHeight="37.0" prefWidth="89.0" text="Gêneros">
                <font>
                   <Font size="15.0" />
                </font>
