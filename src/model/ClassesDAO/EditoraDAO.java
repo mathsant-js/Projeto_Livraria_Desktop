@@ -30,8 +30,8 @@ public class EditoraDAO {
             while (rs.next()) {
                 Editora editora = new Editora(
                         rs.getInt("cod_editora"),
-                        rs.getString("nome_editora"),
-                        rs.getString("endereco_editora")
+                       rs.getString("nome_editora"),
+                    rs.getString("endereco_editora")
                 );
                 editoras.add(editora);
             }

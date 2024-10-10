@@ -30,11 +30,11 @@ public class AutorDAO {
             while (rs.next()) {
                 Autor autor = new Autor(
                         rs.getInt("cod_autor"),
-                        rs.getString("nome_autor"),
-                        rs.getString("biografia_autor"),
-                            rs.getDate("data_nascimento_autor"),
-                        rs.getDate("data_falecimento_autor"),
-                        rs.getString("nacionalidade_autor")
+                       rs.getString("nome_autor"),
+                    rs.getString("biografia_autor"),
+                rs.getDate("data_nascimento_autor"),
+               rs.getDate("data_falecimento_autor"),
+                 rs.getString("nacionalidade_autor")
                 );
                 autores.add(autor);
             }

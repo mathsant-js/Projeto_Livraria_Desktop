@@ -33,10 +33,10 @@ public class EnderecoClienteDAO {
             while (rs.next()) {
                 Cliente cliente = new Cliente (
                         rs.getInt("cod_cliente"),
-                        rs.getString("nome_cliente"),
-                        rs.getString("cpf_cliente"),
-                        rs.getDate("data_nascimento_cliente"),
-                        rs.getString("senha_cliente")
+                     rs.getString("nome_cliente"),
+                      rs.getString("cpf_cliente"),
+                   rs.getDate("data_nascimento_cliente"),
+                    rs.getString("senha_cliente")
                 );
                 EnderecoCliente enderecoClientes = new EnderecoCliente (
                         cliente,

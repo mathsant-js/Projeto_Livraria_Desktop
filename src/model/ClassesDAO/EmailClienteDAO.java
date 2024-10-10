@@ -30,14 +30,14 @@ public class EmailClienteDAO {
             while (rs.next()) {
                 Cliente cliente = new Cliente (
                         rs.getInt("cod_cliente"),
-                        rs.getString("nome_cliente"),
-                        rs.getString("cpf_cliente"),
-                        rs.getDate("data_nascimento_cliente"),
-                        rs.getString("senha_cliente")
+                     rs.getString("nome_cliente"),
+                      rs.getString("cpf_cliente"),
+                   rs.getDate("data_nascimento_cliente"),
+                    rs.getString("senha_cliente")
                 );
                 EmailCliente emailClientes = new EmailCliente (
                         cliente,
-                            rs.getString("email_cliente")
+                        rs.getString("email_cliente")
                 );
                 emailCliente.add(emailClientes);
             }

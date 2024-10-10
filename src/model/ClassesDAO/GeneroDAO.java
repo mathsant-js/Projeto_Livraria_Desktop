@@ -29,7 +29,7 @@ public class GeneroDAO {
                 Genero genero = new Genero(
                         rs.getInt("cod_genero"),
                         rs.getString("nome_genero"),
-                        rs.getString("descricao_genero")
+                    rs.getString("descricao_genero")
                 );
                 generos.add(genero);
             }
