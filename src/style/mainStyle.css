@@ -15,6 +15,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: #262626;
 }
 
+.menu {
+    -fx-background-color: #262626;
+}
+
+.menu:hover {
+    -fx-background-color: #FF6600;
+}
+
+.menu-item {
+    -fx-background-color: #262626;
+    -fx-border-color: transparent;
+}
+
+.separator-menu-item {
+    -fx-background-color: transparent;
+}
+
 .table-view {
     -fx-background-color: #575757;
     -fx-text-fill: #FFFFFF;
@@ -70,6 +87,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-width: 0px 0px 2px 0px;
     -fx-box-shadow: 0 0 5px rgba(255, 102, 0, 0.75);
     -fx-text-fill: #FFFFFF;
+}
+
+.text-area {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: transparent;
+}
+
+.text-area .content {
+    -fx-background-color: #575757;
+    -fx-border-color: #ff6600;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-box-shadow: 0 0 5px rgba(255, 102, 0, 0.75);
 }
 
 .date-picker {

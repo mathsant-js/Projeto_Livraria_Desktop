@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -10,6 +11,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="501.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioEditorasController">
+<VBox prefHeight="859.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioLivrosController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -58,42 +60,95 @@
         </Menu>
       </menus>
     </MenuBar>
-<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="541.0" prefWidth="1247.0" stylesheets="@../style/tableStyle.css">
+<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="970.0" prefWidth="1332.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaEditoras" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="421.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaLivros" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="778.0" prefWidth="567.0">
               <columns>
-                <TableColumn fx:id="codEditora" prefWidth="84.0" text="Código" />
-                <TableColumn fx:id="nomeEditora" prefWidth="250.00003051757812" text="Nome" />
-                  <TableColumn fx:id="enderecoEditora" prefWidth="233.0" text="Endereço" />
+                <TableColumn fx:id="codLivro" prefWidth="84.0" text="Código" />
+                <TableColumn fx:id="nomeLivro" prefWidth="192.00003051757812" text="Título" />
+                  <TableColumn fx:id="autorLivro" prefWidth="152.0" text="Autor" />
+                  <TableColumn fx:id="dtLancLivro" prefWidth="139.0" text="Data de Lançamento" />
               </columns>
             </TableView>
-            <Label layoutX="972.0" layoutY="161.0" text="Telefone">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </Label>
-            <TextField layoutX="971.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
-            <Label layoutX="971.0" layoutY="96.0" text="Nome">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </Label>
-            <TextField layoutX="971.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
-            <TextField layoutX="609.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
-            <Label layoutX="609.0" layoutY="161.0" text="Endereço">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </Label>
-            <Label layoutX="609.0" layoutY="96.0" text="Código">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </Label>
-            <TextField layoutX="609.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
+            <Group layoutX="652.0" layoutY="85.0">
+               <children>
+                  <TextField layoutX="1.0" layoutY="93.0" prefHeight="27.0" prefWidth="171.0" />
+                  <Label layoutX="1.0" layoutY="73.0" text="ISBN">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <Label layoutX="1.0" text="Código do Livro">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutX="1.0" layoutY="20.0" prefHeight="27.0" prefWidth="289.0" />
+                  <Label layoutX="311.0" text="Título">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <Label layoutX="214.0" layoutY="73.0" text="Data de Lançamento">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutX="311.0" layoutY="20.0" prefHeight="27.0" prefWidth="289.0" />
+                  <DatePicker layoutX="214.0" layoutY="93.0" prefHeight="27.0" prefWidth="171.0" style="-fx-border-width: 0;" />
+                  <TextField layoutX="428.0" layoutY="93.0" prefHeight="27.0" prefWidth="171.0" />
+                  <Label layoutX="428.0" layoutY="73.0" text="Preço">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <Label layoutY="357.0" text="Descrição">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextArea layoutY="377.0" prefHeight="200.0" prefWidth="599.0" wrapText="true" />
+                  <Label layoutY="144.0" text="Código do Autor">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutY="164.0" prefHeight="27.0" prefWidth="289.0" />
+                  <Label layoutX="310.0" layoutY="144.0" text="Autor">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutX="310.0" layoutY="164.0" prefHeight="27.0" prefWidth="289.0" />
+                  <Label layoutY="217.0" text="Código da Editora">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutY="237.0" prefHeight="27.0" prefWidth="289.0" />
+                  <Label layoutX="310.0" layoutY="217.0" text="Editora">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutX="310.0" layoutY="237.0" prefHeight="27.0" prefWidth="289.0" />
+                  <Label layoutY="288.0" text="Código do Gênero">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutY="308.0" prefHeight="27.0" prefWidth="289.0" />
+                  <Label layoutX="310.0" layoutY="288.0" text="Gênero">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Label>
+                  <TextField layoutX="310.0" layoutY="308.0" prefHeight="27.0" prefWidth="289.0" />
+               </children>
+            </Group>
             <TextField layoutX="173.0" layoutY="10.0" prefHeight="27.0" prefWidth="406.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
-            <Group layoutX="703.0" layoutY="312.0">
+            <Group layoutX="706.0" layoutY="694.0">
                <children>
                   <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
                      <font>
@@ -145,7 +200,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1205.0" layoutY="427.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1205.0" layoutY="785.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -157,7 +212,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="tituloPag" layoutX="910.0" layoutY="22.0" text="Editora">
+            <Label fx:id="tituloPag" layoutX="926.0" layoutY="14.0" text="Livro">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>

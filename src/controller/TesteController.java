@@ -31,6 +31,8 @@ public class TesteController implements Initializable {
     private Button btnEditoras;
     @FXML
     private Button btnGeneros;
+    @FXML
+    private Button btnLivros;
 
     /**
      * Initializes the controller class.
@@ -93,6 +95,20 @@ public class TesteController implements Initializable {
         newStage.show();
 
         Stage currentStage = (Stage) btnGeneros.getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    private void btnLivros() throws IOException{
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource( "FormularioLivros.fxml" ) );
+        Scene scene = new Scene(root);
+
+        newStage.setTitle("Tela Livros");
+        newStage.setScene(scene);
+        newStage.show();
+
+        Stage currentStage = (Stage) btnLivros.getScene().getWindow();
         currentStage.close();
     }
 }

@@ -11,48 +11,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Editora;
-import model.Genero;
 import model.Livro;
 
 /**
  *
- * @author Matheus Santana
+ * @author lucas
  */
 public class LivroDAO {
     public List<Livro> listarTodosLivros() throws SQLException {
         Conexao conexao = new Conexao();
         List<Livro> livros = new ArrayList<>();
-        String sql = "SELECT l.cod_livro, l.nome_livro, l.isbn_livro, l.data_lancamento, " +
-                     "l.preco_livro, l.descricao_livro, " +
-                     "g.cod_genero, g.nome_genero, " +
-                     "e.cod_editora, e.nome_editora " +
-                     "FROM livro l " +
-                     "JOIN genero g ON l.cod_genero = g.cod_genero " +
-                     "JOIN editora e ON l.cod_editora = e.cod_editora";
+        String sql = ""
+                +"SELECT Livro.cod_livro, Livro.nome_livro, Livro.isbn_livro, Livro.data_lancamento, Livro.preco_livro, AutorLivro.cod_autor, Autor.nome_autor, Editora.cod_editora, Editora.nome_editora, Genero.cod_genero, Genero.nome_genero, Livro.descricao_livro\n"
+                +"FROM Livro\n"
+                +"INNER JOIN AutorLivro ON Livro.cod_livro=AutorLivro.cod_livro\n"
+                +"INNER JOIN Autor ON Livro.cod_livro=AutorLivro.cod_livro AND AutorLivro.cod_autor=Autor.cod_autor\n"
+                +"INNER JOIN Editora ON Livro.cod_editora=Editora.cod_editora\n"
+                +"INNER JOIN Genero ON Livro.cod_genero=Genero.cod_genero;";
         
         try (Connection conn = conexao.connect(); 
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery()) {
             
             while (rs.next()) {
-                Genero genero = new Genero(rs.getInt("cod_genero"),
-                        rs.getString("nome_genero"),
-                    rs.getString("descricao_genero"));
-                
-                Editora editora = new Editora(rs.getInt("cod_editora"),
-                        rs.getString("nome_editora"),
-                     rs.getString("endereco_editora"));
-                
                 Livro livro = new Livro(
                         rs.getInt("cod_livro"),
-                       rs.getString("nome_livro"),
-                       rs.getString("isbn_livro"),
-                    rs.getDate("data_lancamento"),
-                       rs.getFloat("preco_livro"),
-                    rs.getString("descricao_livro"),
-                       genero,
-                       editora
+                        rs.getString("nome_livro"),
+                        rs.getString("isbn_livro"),
+                        rs.getDate("data_lancamento"),
+                        rs.getFloat("preco_livro"),
+                        rs.getInt("cod_autor"),
+                        rs.getString("nome_autor"),
+                        rs.getInt("cod_editora"),
+                        rs.getString("nome_editora"),
+                        rs.getInt("cod_genero"),
+                        rs.getString("nome_genero"),
+                        rs.getString("descricao_livro")
                 );
                 livros.add(livro);
             }

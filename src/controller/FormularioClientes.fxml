@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="552.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioClientesController">
+<VBox prefHeight="590.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioClientesController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -60,9 +60,9 @@
         </Menu>
       </menus>
     </MenuBar>
-<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="541.0" prefWidth="1247.0" stylesheets="@../style/tableStyle.css">
+<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="800.0" prefWidth="1332.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="472.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="507.0" prefWidth="567.0">
               <columns>
                 <TableColumn fx:id="codCli" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeCliente" prefWidth="247.0" text="Nome" />
@@ -70,69 +70,57 @@
                   <TableColumn fx:id="dtNascCliente" prefWidth="139.0" text="Data de Nascimento" />
               </columns>
             </TableView>
-            <Group layoutX="607.0" layoutY="98.0">
-               <children>
-                  <Group layoutX="354.0">
-                     <children>
-                        <Label layoutY="59.0" text="Telefone">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="2.0" layoutY="114.0" text="Endereço">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="3.0" layoutY="167.0" text="Senha">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <TextField layoutX="126.0" layoutY="57.0" prefHeight="27.0" prefWidth="210.0" />
-                        <TextField layoutX="126.0" layoutY="109.0" prefHeight="27.0" prefWidth="210.0" />
-                        <Label layoutX="1.0" layoutY="5.0" text="Email">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <TextField layoutX="126.0" prefHeight="27.0" prefWidth="210.0" />
-                        <PasswordField layoutX="125.0" layoutY="156.0" prefHeight="27.0" prefWidth="210.0" />
-                     </children>
-                  </Group>
-                  <Group>
-                     <children>
-                        <TextField layoutX="125.0" layoutY="55.0" prefHeight="27.0" prefWidth="210.0" />
-                        <Label layoutX="1.0" layoutY="60.0" text="Nome">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <Label layoutX="1.0" layoutY="112.0" text="CPF">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <Label layoutY="163.0" text="Data de Nascimento">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <TextField layoutX="125.0" layoutY="107.0" prefHeight="27.0" prefWidth="210.0" />
-                        <Label layoutX="1.0" layoutY="5.0" text="Código">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </Label>
-                        <TextField layoutX="125.0" prefHeight="27.0" prefWidth="113.0" />
-                        <DatePicker layoutX="125.0" layoutY="158.0" prefHeight="27.0" prefWidth="210.0" style="-fx-border-width: 0;" />
-                     </children>
-                  </Group>
-               </children>
-            </Group>
+            <Label layoutX="985.0" layoutY="219.0" text="Telefone">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <Label layoutX="627.0" layoutY="291.0" text="Endereço">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <Label layoutX="985.0" layoutY="291.0" text="Senha">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <TextField layoutX="984.0" layoutY="240.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField layoutX="627.0" layoutY="312.0" prefHeight="27.0" prefWidth="307.0" />
+            <Label layoutX="627.0" layoutY="219.0" text="Email">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <TextField layoutX="627.0" layoutY="240.0" prefHeight="27.0" prefWidth="307.0" />
+            <PasswordField layoutX="984.0" layoutY="312.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField layoutX="984.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
+            <Label layoutX="985.0" layoutY="77.0" text="Nome">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <Label layoutX="627.0" layoutY="148.0" text="CPF">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <Label layoutX="984.0" layoutY="148.0" text="Data de Nascimento">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <TextField layoutX="627.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" />
+            <Label layoutX="627.0" layoutY="77.0" text="Código">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </Label>
+            <TextField layoutX="627.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
+            <DatePicker layoutX="984.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" style="-fx-border-width: 0;" />
             <TextField layoutX="173.0" layoutY="10.0" prefHeight="27.0" prefWidth="406.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
-            <Group layoutX="705.0" layoutY="330.0">
+            <Group layoutX="709.0" layoutY="405.0">
                <children>
                   <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
                      <font>
@@ -184,7 +172,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1205.0" layoutY="478.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1205.0" layoutY="516.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
