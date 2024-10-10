@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Matheus Santana
@@ -12,13 +14,13 @@ public class Livro {
     private int codLivro;
     private String nomeLivro;
     private String isbnLivro;
-    private String dataLancamento;
+    private Date dataLancamento;
     private float precoLivro;
     private String descricaoLivro;
     private Genero codGenero;
     private Editora codEditora;
     
-    public Livro (int codLivro, String nomeLivro, String isbnLivro, String dataLancamento,
+    public Livro (int codLivro, String nomeLivro, String isbnLivro, Date dataLancamento,
             float precoLivro, String descricaoLivro, Genero codGenero, Editora codEditora
     ) 
     
@@ -78,14 +80,14 @@ public class Livro {
     /**
      * @return the dataLancamento
      */
-    public String getDataLancamento() {
+    public Date getDataLancamento() {
         return dataLancamento;
     }
 
     /**
      * @param dataLancamento the dataLancamento to set
      */
-    public void setDataLancamento(String dataLancamento) {
+    public void setDataLancamento(Date dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 
