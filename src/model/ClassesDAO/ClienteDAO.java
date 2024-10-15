@@ -69,4 +69,14 @@ public class ClienteDAO {
             stmt.executeUpdate();
         }
     }
+    
+    public void deletarCliente(int codCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM cliente WHERE cod_cliente = ?";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, codCliente);
+            stmt.executeUpdate();
+        }
+    }
 }
