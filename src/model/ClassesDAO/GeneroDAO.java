@@ -61,4 +61,14 @@ public class GeneroDAO {
             stmt.executeUpdate();
         }
     }
+    
+    public void deletarGenero (int codGenero) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM genero WHERE cod_genero = ?";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, codGenero);
+            stmt.executeUpdate();
+        }
+    }
 }
