@@ -85,16 +85,16 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="984.0" layoutY="240.0" prefHeight="27.0" prefWidth="307.0" />
-            <TextField layoutX="627.0" layoutY="312.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField fx:id="telefoneField" layoutX="984.0" layoutY="240.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField fx:id="enderecoField" layoutX="627.0" layoutY="312.0" prefHeight="27.0" prefWidth="307.0" />
             <Label layoutX="627.0" layoutY="219.0" text="Email">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="627.0" layoutY="240.0" prefHeight="27.0" prefWidth="307.0" />
-            <PasswordField layoutX="984.0" layoutY="312.0" prefHeight="27.0" prefWidth="307.0" />
-            <TextField layoutX="984.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField fx:id="emailField" layoutX="627.0" layoutY="240.0" prefHeight="27.0" prefWidth="307.0" />
+            <PasswordField fx:id="senhaField" layoutX="984.0" layoutY="312.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField fx:id="nomeField" layoutX="984.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
             <Label layoutX="985.0" layoutY="77.0" text="Nome">
                <cursor>
                   <Cursor fx:constant="TEXT" />
@@ -110,14 +110,14 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="627.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField fx:id="cpfField" layoutX="627.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" />
             <Label layoutX="627.0" layoutY="77.0" text="Código">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
             <TextField layoutX="627.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
-            <DatePicker layoutX="984.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" style="-fx-border-width: 0;" />
+            <DatePicker fx:id="dtNascField" layoutX="984.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" style="-fx-border-width: 0;" />
             <TextField layoutX="173.0" layoutY="10.0" prefHeight="27.0" prefWidth="406.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
             <Group layoutX="709.0" layoutY="405.0">

@@ -24,7 +24,10 @@ import javafx.stage.Stage;
 import model.Cliente;
 import model.ClassesDAO.ClienteDAO;
 import java.sql.*;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -45,6 +48,20 @@ public class FormularioClientesController implements Initializable {
     private TableColumn<Cliente, String> clienteCpf;
     @FXML
     private Label tituloPag;
+    @FXML
+    private TextField telefoneField;
+    @FXML
+    private TextField enderecoField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private PasswordField senhaField;
+    @FXML
+    private TextField nomeField;
+    @FXML
+    private TextField cpfField;
+    @FXML
+    private DatePicker dtNascField;
 
     /**
      * Initializes the controller class.
