@@ -33,6 +33,20 @@ public class Autor {
         this.dataFalecimentoAutor = dataFalecimentoAutor;
         this.nacionalidadeAutor = nacionalidadeAutor;
     }
+    
+    public Autor (
+        String nomeAutor,
+        String biografiaAutor, 
+        Date dataNascimentoAutor,
+        Date dataFalecimentoAutor,
+        String nacionalidadeAutor
+    ) {
+        this.nomeAutor = nomeAutor;
+        this.biografiaAutor = biografiaAutor;
+        this.dataNascimentoAutor = dataNascimentoAutor;
+        this.dataFalecimentoAutor = dataFalecimentoAutor;
+        this.nacionalidadeAutor = nacionalidadeAutor;
+    }
 
     /**
      * @return the codAutor

@@ -24,7 +24,10 @@ import javafx.stage.Stage;
 import model.Autor;
 import model.ClassesDAO.AutorDAO;
 import java.sql.*;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -45,6 +48,16 @@ public class FormularioAutoresController implements Initializable {
     private TableColumn<Autor, String> nacionalidadeAutor;
     @FXML
     private TableColumn<Autor, String> dtNascAutor;
+    @FXML
+    private TextField nacionalidadeField;
+    @FXML
+    private DatePicker dtNascField;
+    @FXML
+    private DatePicker dtFaleField;
+    @FXML
+    private TextField nomeField;
+    @FXML
+    private TextArea biografiaField;
 
     /**
      * Initializes the controller class.
@@ -53,7 +66,8 @@ public class FormularioAutoresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         carregarDadosAutor();
     }
-
+    
+    @FXML
     private void carregarDadosAutor() {
         AutorDAO autorDAO = new AutorDAO();
         try {
@@ -67,6 +81,24 @@ public class FormularioAutoresController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }    
+    }
+    
+    @FXML
+    private void cadastrarAutor() {
+        String nomeAutor = nomeField.getText();
+        Date dataNascimentoAutor = Date.valueOf(dtNascField.getValue());
+        Date dataFalecimentoAutor = Date.valueOf(dtFaleField.getValue());
+        String nacionalidadeAutor = nacionalidadeField.getText();
+        String biografiaAutor = biografiaField.getText();
+        AutorDAO autorDAO = new AutorDAO();
+        Autor autor = new Autor(nomeAutor, biografiaAutor, dataNascimentoAutor, dataFalecimentoAutor, nacionalidadeAutor);
+        try {
+            autorDAO.cadastrarAutor(autor);
+            carregarDadosAutor();
+        } catch (Exception e) {
+            System.out.println("Erro ao adicionar autor: " + e.getMessage());
+        }
+    }
+    
     
 }

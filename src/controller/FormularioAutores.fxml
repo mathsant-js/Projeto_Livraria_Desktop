@@ -60,7 +60,7 @@
         </Menu>
       </menus>
     </MenuBar>
-<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="778.0" prefWidth="1332.0" stylesheets="@../style/tableStyle.css">
+<AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="778.0" prefWidth="540.0" stylesheets="@../style/tableStyle.css">
          <children>
             <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="625.0" prefWidth="567.0">
               <columns>
@@ -75,7 +75,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="614.0" layoutY="232.0" prefHeight="27.0" prefWidth="690.0" />
+            <TextField fx:id="nacionalidadeField" layoutX="614.0" layoutY="232.0" prefHeight="27.0" prefWidth="690.0" />
             <Label layoutX="612.0" layoutY="77.0" text="Código">
                <cursor>
                   <Cursor fx:constant="TEXT" />
@@ -92,16 +92,16 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <DatePicker layoutX="613.0" layoutY="166.0" prefHeight="27.0" prefWidth="317.0" style="-fx-border-width: 0;" />
+            <DatePicker fx:id="dtNascField" layoutX="613.0" layoutY="166.0" prefHeight="27.0" prefWidth="317.0" style="-fx-border-width: 0;" />
             <Label layoutX="981.0" layoutY="145.0" text="Data de Falecimento">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <DatePicker layoutX="981.0" layoutY="166.0" prefHeight="27.0" prefWidth="317.0" style="-fx-border-width: 0;" />
-            <TextField layoutX="981.0" layoutY="99.0" prefHeight="27.0" prefWidth="317.0" />
+            <DatePicker fx:id="dtFaleField" layoutX="981.0" layoutY="166.0" prefHeight="27.0" prefWidth="317.0" style="-fx-border-width: 0;" />
+            <TextField fx:id="nomeField" layoutX="981.0" layoutY="99.0" prefHeight="27.0" prefWidth="317.0" />
             <TextField layoutX="173.0" layoutY="10.0" prefHeight="27.0" prefWidth="406.0" />
-            <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
+            <Label layoutX="21.0" layoutY="14.0" prefWidth="190.0" text="Pesquisar por nome:" />
             <Group layoutX="701.0" layoutY="542.0">
                <children>
                   <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
@@ -116,7 +116,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Cadastrar">
+                  <Button layoutX="133.0" mnemonicParsing="false" onAction="#cadastrarAutor" prefHeight="35.0" prefWidth="113.0" text="Cadastrar">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -179,7 +179,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextArea layoutX="612.0" layoutY="300.0" prefHeight="200.0" prefWidth="690.0" wrapText="true" />
+            <TextArea fx:id="biografiaField" layoutX="612.0" layoutY="300.0" prefHeight="200.0" prefWidth="690.0" wrapText="true" />
          </children>
 </AnchorPane>
   </children>
