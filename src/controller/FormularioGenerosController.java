@@ -25,6 +25,7 @@ import model.Genero;
 import model.ClassesDAO.GeneroDAO;
 import java.sql.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -42,6 +43,10 @@ public class FormularioGenerosController implements Initializable {
     private TableColumn<Genero, String> nomeGenero;
     @FXML
     private TableColumn<Genero, String> descricaoGenero;
+    @FXML
+    private TextField nomeField;
+    @FXML
+    private TextField descricaoField;
 
     /**
      * Initializes the controller class.
@@ -62,6 +67,20 @@ public class FormularioGenerosController implements Initializable {
             descricaoGenero.setCellValueFactory(new PropertyValueFactory<>("descricaoGenero"));
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void cadastrarGenero() {
+        String nomeGenero = nomeField.getText();
+        String descricaoGenero = descricaoField.getText();
+        GeneroDAO generoDAO = new GeneroDAO();
+        Genero genero = new Genero(nomeGenero, descricaoGenero);
+        try {
+            generoDAO.cadastrarGenero(genero);
+            carregarDadosGenero();
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar gênero: " + e);
         }
     }
     
