@@ -18,6 +18,11 @@ public class Genero {
         this.nomeGenero = nomeGenero;
         this.descricaoGenero = descricaoGenero;
     }
+    
+    public Genero (String nomeGenero, String descricaoGenero) {
+        this.nomeGenero = nomeGenero;
+        this.descricaoGenero = descricaoGenero;
+    }
 
     /**
      * @return the codGenero
