@@ -16,6 +16,18 @@ import model.Genero;
  * @author Matheus Santana
  */
 public class GeneroDAO {
+    public void cadastrarGenero (Genero genero) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "INSERT INTO genero (nome_genero, descricao_genero) "
+                     + "VALUES (?, ?)";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, genero.getNomeGenero());
+            stmt.setString(2, genero.getDescricaoGenero());
+            stmt.executeUpdate();
+        }
+    }
+    
     public List<Genero> listarTodosGeneros() throws SQLException {
         Conexao conexao = new Conexao();
         List<Genero> generos = new ArrayList<>();
