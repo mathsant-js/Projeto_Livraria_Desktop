@@ -16,6 +16,22 @@ import model.Cliente;
  * @author Admin
  */
 public class ClienteDAO {
+    public void cadastrarCliente (Cliente cliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "INSERT INTO cliente (nome_cliente, cpf_cliente, data_nascimento_cliente, senha_cliente) "
+                   + "VALUES (?, ?, ?, ?)";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);) {
+            stmt.setString(1, cliente.getNomeCliente());
+            stmt.setString(2, cliente.getClienteCpf());
+            stmt.setDate(3, cliente.getDtNascCliente());
+            stmt.setString(4, cliente.getSenhaCliente());
+            stmt.executeUpdate();
+        }
+    }
+    
+    
     public List<Cliente> listarTodos() throws SQLException {
         Conexao conexao = new Conexao();
         List<Cliente> clientes = new ArrayList<>();
