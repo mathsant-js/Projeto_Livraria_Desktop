@@ -54,4 +54,19 @@ public class ClienteDAO {
         }
         return clientes;
     }
+    
+    public void atualizarCliente(Cliente cliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "UPDATE cliente SET nome_cliente = ?, cpf_cliente = ?, data_nascimento_cliente = ?, senha_cliente = ? "
+                   + "WHERE cod_cliente = ?";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cliente.getNomeCliente());
+            stmt.setString(2, cliente.getClienteCpf());
+            stmt.setDate(3, cliente.getDtNascCliente());
+            stmt.setString(4, cliente.getSenhaCliente());
+            stmt.executeUpdate();
+        }
+    }
 }
