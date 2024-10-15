@@ -25,6 +25,13 @@ public class Cliente {
         this.senhaCliente = senhaCliente;
     }
 
+    public Cliente (String nomeCliente, String clienteCpf, Date dtNascCliente, String senhaCliente) {
+        this.nomeCliente = nomeCliente;
+        this.clienteCpf = clienteCpf;
+        this.dtNascCliente = dtNascCliente;
+        this.senhaCliente = senhaCliente;
+    }
+    
     public Cliente(int aInt, String string, String string0, String string1) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
