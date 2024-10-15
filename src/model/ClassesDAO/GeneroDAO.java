@@ -48,4 +48,17 @@ public class GeneroDAO {
         }
         return generos;
     }
+    
+    public void atualizarGenero (Genero genero) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "UPDATE genero SET nome_genero = ?, descricao_genero = ?"
+                   + "WHERE cod_genero = ?";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, genero.getNomeGenero());
+            stmt.setString(2, genero.getDescricaoGenero());
+            stmt.executeUpdate();
+        }
+    }
 }
