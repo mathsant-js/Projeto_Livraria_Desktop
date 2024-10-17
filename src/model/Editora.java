@@ -18,6 +18,11 @@ public class Editora {
         this.nomeEditora = nomeEditora;
         this.enderecoEditora = enderecoEditora;
     }
+    
+    public Editora (String nomeEditora, String enderecoEditora) {
+        this.nomeEditora = nomeEditora;
+        this.enderecoEditora = enderecoEditora;
+    }
 
     /**
      * @return the codEditora

@@ -36,14 +36,16 @@ public class LivroDAO {
             stmt.executeUpdate();
             
             ResultSet rs = stmt.getGeneratedKeys();
-            int idLivro = rs.getInt(1);
-            String sqlAutor = "INSERT INTO autorlivro (cod_autor, cod_livro) "
-                            + "VALUES (?, ?);";
-            try (Connection connAutor = conexao.connect();
-                PreparedStatement stmtAutor = conn.prepareStatement(sqlAutor);) {
-                stmtAutor.setInt(1, livro.getCodAutor());
-                stmtAutor.setInt(2, idLivro);
-                stmtAutor.executeUpdate();
+            while (rs.next()) {
+                int idLivro = rs.getInt(1);
+                String sqlAutor = "INSERT INTO autorlivro (cod_autor, cod_livro) "
+                                + "VALUES (?, ?);";
+                try (Connection connAutor = conexao.connect();
+                    PreparedStatement stmtAutor = conn.prepareStatement(sqlAutor);) {
+                    stmtAutor.setInt(1, livro.getCodAutor());
+                    stmtAutor.setInt(2, idLivro);
+                    stmtAutor.executeUpdate();
+                }
             }
         }
     }

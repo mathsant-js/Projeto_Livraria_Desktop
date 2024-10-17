@@ -9,10 +9,10 @@ package model;
  * @author Matheus Santana
  */
 public class TelefoneEditora {
-    private Editora codEditora;
+    private int codEditora;
     private String telefoneEditora;
     
-    public TelefoneEditora (Editora codEditora, String telefoneEditora) {
+    public TelefoneEditora (int codEditora, String telefoneEditora) {
         this.codEditora = codEditora;
         this.telefoneEditora = telefoneEditora;
     }
@@ -20,14 +20,14 @@ public class TelefoneEditora {
     /**
      * @return the codEditora
      */
-    public Editora getCodEditora() {
+    public int getCodEditora() {
         return codEditora;
     }
 
     /**
      * @param codEditora the codEditora to set
      */
-    public void setCodEditora(Editora codEditora) {
+    public void setCodEditora(int codEditora) {
         this.codEditora = codEditora;
     }
 

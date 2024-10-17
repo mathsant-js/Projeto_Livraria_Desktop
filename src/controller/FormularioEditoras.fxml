@@ -60,7 +60,7 @@
     </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="541.0" prefWidth="1247.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaEditoras" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="421.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaEditoras" editable="true" layoutX="11.0" layoutY="45.0" onMouseClicked="#exibirClicado" prefHeight="421.0" prefWidth="567.0">
               <columns>
                 <TableColumn fx:id="codEditora" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeEditora" prefWidth="250.00003051757812" text="Nome" />
@@ -72,14 +72,14 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="971.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
+            <TextField fx:id="telefoneField" layoutX="971.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
             <Label layoutX="971.0" layoutY="96.0" text="Nome">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="971.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
-            <TextField layoutX="609.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
+            <TextField fx:id="nomeField" layoutX="971.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
+            <TextField fx:id="enderecoField" layoutX="609.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
             <Label layoutX="609.0" layoutY="161.0" text="Endereço">
                <cursor>
                   <Cursor fx:constant="TEXT" />
@@ -90,12 +90,12 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="609.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
-            <TextField layoutX="173.0" layoutY="10.0" prefHeight="27.0" prefWidth="406.0" />
+            <TextField fx:id="codField" disable="true" layoutX="609.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
+            <TextField fx:id="buscaField" layoutX="173.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="406.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
             <Group layoutX="703.0" layoutY="312.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
+                  <Button mnemonicParsing="false" onAction="#novo" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -107,7 +107,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Cadastrar">
+                  <Button layoutX="133.0" mnemonicParsing="false" onAction="#cadastrarEditora" prefHeight="35.0" prefWidth="113.0" text="Cadastrar">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -119,7 +119,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="267.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Atualizar ">
+                  <Button layoutX="267.0" mnemonicParsing="false" onAction="#atualizarEditora" prefHeight="35.0" prefWidth="113.0" text="Atualizar ">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -131,7 +131,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="404.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="  Excluir  ">
+                  <Button layoutX="404.0" mnemonicParsing="false" onAction="#excluirEditora" prefHeight="35.0" prefWidth="113.0" text="  Excluir  ">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -145,7 +145,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1205.0" layoutY="427.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1205.0" layoutY="427.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -165,6 +165,18 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
+            <Button layoutX="1075.0" layoutY="427.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/sair.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
 </AnchorPane>
   </children>

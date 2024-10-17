@@ -36,6 +36,7 @@ import model.Autor;
 import model.ClassesDAO.AutorDAO;
 import model.ClassesDAO.EditoraDAO;
 import model.ClassesDAO.GeneroDAO;
+import model.Editora;
 import model.Genero;
 
 /**
@@ -101,6 +102,38 @@ public class FormularioLivrosController implements Initializable {
             nomeLivro.setCellValueFactory(new PropertyValueFactory<>("nomeLivro"));
             autorLivro.setCellValueFactory(new PropertyValueFactory<>("codAutor"));
             dtLancLivro.setCellValueFactory(new PropertyValueFactory<>("dataLancamentoLivro"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void preencherAutor() {
+        AutorDAO autorDAO = new AutorDAO();
+        try {
+            if ((codAutorField.getText()).isEmpty()) {
+                autorField.setText("Autor não encontrado.");
+            } else {
+                Autor autor = autorDAO.buscarAutoresPorId(Integer.parseInt(codAutorField.getText()));
+                String nome = autor.getNomeAutor();
+                autorField.setText(nome);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void preencherEditora() {
+        EditoraDAO editoraDAO = new EditoraDAO();
+        try {
+            if ((codEditoraField.getText()).isEmpty()) {
+                editoraField.setText("Editora não encontrada.");
+            } else {
+                Editora editora = editoraDAO.buscarEditoraPorId(Integer.parseInt(codEditoraField.getText()));
+                String nome = editora.getNomeEditora();
+                editoraField.setText(nome);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

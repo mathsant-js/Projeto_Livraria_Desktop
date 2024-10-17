@@ -19,30 +19,50 @@ import model.TelefoneEditora;
  * @author Matheus Santana
  */
 public class TelefoneEditoraDAO {
-    public List<TelefoneEditora> listarTodosOsEnderecosClientes() throws SQLException {
+    public void cadastrarTelefoneEditora (TelefoneEditora telefoneEditora) throws SQLException {
         Conexao conexao = new Conexao();
-        List<TelefoneEditora> telefoneEditora = new ArrayList();
-        String sql = "SELECT editora.nome_editora, editora.endereco_editora, telefoneeditora.telefone_editora "
-                   + "FROM editora INNER JOIN telefoneeditora"
-                   + "ON editora.cod_editora = telefoneeditora.cod_editora";
+        String sql = "INSERT INTO telefoneeditora (cod_editora, telefone_editora) "
+                     + "VALUES (?, ?)";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, telefoneEditora.getCodEditora());
+            stmt.setString(2, telefoneEditora.getTelefoneEditora());
+            stmt.executeUpdate();
+        }
+    }
+    
+    public TelefoneEditora obterTelefoneEditora(int id) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "SELECT * FROM telefoneeditora WHERE cod_cliente = " +id +";";
         
-        try (Connection conn = conexao.connect(); 
+        try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery()) {
-            
-            while (rs.next()) {
-                Editora editora = new Editora (
-                         rs.getInt("cod_editora"),
-                        rs.getString("nome_editora"),
-                     rs.getString("endereco_editora")
+                rs.next();
+                TelefoneEditora telefoneeditora = new TelefoneEditora(
+                        rs.getInt("cod_cliente"),
+                        rs.getString("telefone_cliente")
                 );
-                TelefoneEditora telefoneEditoras = new TelefoneEditora (
-                        editora,
-                            rs.getString("telefone_editora")
-                );
-                telefoneEditora.add(telefoneEditoras);
-            }
+                return telefoneeditora;
+        } catch (SQLException e) {
+            TelefoneEditora telefoneeditora = new TelefoneEditora(id, null);
+            return telefoneeditora;
         }
-        return telefoneEditora;
+    }
+    
+    public TelefoneEditora buscarTelefoneEditoraPorId(int id) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "SELECT * FROM telefoneeditora WHERE cod_editora = " +id +";";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+                rs.next();
+                TelefoneEditora telefoneEditora = new TelefoneEditora(
+                        rs.getInt("cod_editora"),
+                        rs.getString("telefone_editora")
+                );
+                return telefoneEditora;
+        }
     }
 }

@@ -209,21 +209,7 @@ public class FormularioClientesController implements Initializable {
         
         Cliente cliente = new Cliente(nomeCliente, cpfCliente, dtNascCliente, senhaCliente);
         try {
-            clienteDAO.cadastrarCliente(cliente);
-            carregarDadosCliente();
-            
-            int linhas = tabelaClientes.getItems().size();
-            tabelaClientes.getSelectionModel().select(linhas);
-            Cliente client = clienteDAO.buscarPorId(tabelaClientes.getSelectionModel().getSelectedItem().getCodCli());
-            
-            EmailCliente emailcliente = new EmailCliente(client.getCodCli(), emailCliente);
-            TelefoneCliente telefonecliente = new TelefoneCliente(client.getCodCli(), telefoneCliente);
-            EnderecoCliente enderecocliente = new EnderecoCliente(client.getCodCli(), enderecoCliente);
-            
-            emailclienteDAO.cadastrarEmailCliente(emailcliente);
-            telefoneclienteDAO.cadastrarTelefoneCliente(telefonecliente);
-            enderecoclienteDAO.cadastrarEnderecoCliente(enderecocliente);
-            
+            clienteDAO.cadastrarCliente(cliente, telefoneCliente, emailCliente, enderecoCliente);
             carregarDadosCliente();
             novo();
         } catch (Exception e) {
@@ -248,11 +234,7 @@ public class FormularioClientesController implements Initializable {
         EnderecoClienteDAO enderecoclienteDAO = new EnderecoClienteDAO();
         
         try {
-            clienteDAO.atualizarCliente(codCliente, nomeCliente, cpfCliente, dtNascCliente, senhaCliente);
-            emailclienteDAO.atualizarEmailCliente(codCliente, emailCliente);
-            telefoneclienteDAO.atualizarTelefoneCliente(codCliente, telefoneCliente);
-            enderecoclienteDAO.atualizarEnderecoCliente(codCliente, enderecoCliente);
-            
+            clienteDAO.atualizarCliente(codCliente, nomeCliente, cpfCliente, dtNascCliente, senhaCliente, telefoneCliente,emailCliente, enderecoCliente);
             carregarDadosCliente();
         } catch (Exception e) {
             System.out.println("Erro ao atualizar cliente: " + e);
@@ -269,11 +251,6 @@ public class FormularioClientesController implements Initializable {
         
         try {
             clienteDAO.deletarCliente(id);
-            emailclienteDAO.deletarEmailCliente(id);
-            telefoneclienteDAO.deletarTelefoneCliente(id);
-            enderecoclienteDAO.deletarEnderecoCliente(id);
-            
-            carregarDadosCliente();
             novo();
         } catch (SQLException e) {
             e.printStackTrace();

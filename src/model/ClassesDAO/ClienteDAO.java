@@ -10,13 +10,16 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.Cliente;
+import model.EmailCliente;
+import model.EnderecoCliente;
+import model.TelefoneCliente;
 
 /**
  *
  * @author Admin
  */
 public class ClienteDAO {
-    public void cadastrarCliente (Cliente cliente) throws SQLException {
+    public void cadastrarCliente (Cliente cliente, String telCliente, String emaCliente, String endCliente) throws SQLException {
         Conexao conexao = new Conexao();
         String sql = "INSERT INTO cliente (nome_cliente, cpf_cliente, data_nascimento_cliente, senha_cliente) "
                    + "VALUES (?, ?, ?, ?)";
@@ -28,6 +31,23 @@ public class ClienteDAO {
             stmt.setDate(3, cliente.getDtNascCliente());
             stmt.setString(4, cliente.getSenhaCliente());
             stmt.executeUpdate();
+            
+            ResultSet rs = stmt.getGeneratedKeys();
+            while (rs.next()) {
+                int idCliente = rs.getInt(1);
+                
+                TelefoneCliente telefoneCliente = new TelefoneCliente(idCliente, telCliente);
+                TelefoneClienteDAO telefoneClienteDAO = new TelefoneClienteDAO();
+                telefoneClienteDAO.cadastrarTelefoneCliente(telefoneCliente);
+                
+                EmailCliente emailCliente = new EmailCliente(idCliente, emaCliente);
+                EmailClienteDAO emailClienteDAO = new EmailClienteDAO();
+                emailClienteDAO.cadastrarEmailCliente(emailCliente);
+                
+                EnderecoCliente enderecoCliente = new EnderecoCliente(idCliente, endCliente);
+                EnderecoClienteDAO enderecoClienteDAO = new EnderecoClienteDAO();
+                enderecoClienteDAO.cadastrarEnderecoCliente(enderecoCliente);
+            }
         }
     }
     
@@ -97,10 +117,34 @@ public class ClienteDAO {
         return clientes;
     }
     
-    public void atualizarCliente(int codCli, String nomeCliente, String clienteCpf, Date dtNascCliente, String senhaCliente) throws SQLException {
+    public void atualizarCliente(int codCli, String nomeCliente, String clienteCpf, Date dtNascCliente, String senhaCliente, String telCliente, String emaCliente, String endCliente) throws SQLException {
         Conexao conexao = new Conexao();
         String sql = "UPDATE cliente SET nome_cliente = '" +nomeCliente +"', cpf_cliente = '" +clienteCpf +"', data_nascimento_cliente = '" +dtNascCliente +"', senha_cliente = '" +senhaCliente +"' "
                    + "WHERE cod_cliente = " +codCli +";";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        }
+        
+        sql = "UPDATE telefonecliente SET telefone_cliente = '" +telCliente +"' "
+            + "WHERE cod_cliente = " +codCli +";";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        }
+        
+        sql = "UPDATE emailcliente SET email_cliente = '" +emaCliente +"' "
+            + "WHERE cod_cliente = " +codCli +";";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        }
+        
+        sql = "UPDATE enderecocliente SET endereco_cliente = '" +endCliente +"' "
+            + "WHERE cod_cliente = " +codCli +";";
         
         try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -115,6 +159,24 @@ public class ClienteDAO {
         try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, codCliente);
+            stmt.executeUpdate();
+        }
+        
+        String sql2 = "DELETE FROM telefonecliente WHERE cod_cliente = " +codCliente +";";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql2)) {
+            stmt.executeUpdate();
+        }
+        
+        sql2 = "DELETE FROM enderecocliente WHERE cod_cliente = " +codCliente +";";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql2)) {
+            stmt.executeUpdate();
+        }
+        
+        sql2 = "DELETE FROM emailcliente WHERE cod_cliente = " +codCliente +";";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql2)) {
             stmt.executeUpdate();
         }
     }
