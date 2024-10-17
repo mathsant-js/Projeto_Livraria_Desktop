@@ -6,6 +6,7 @@ package controller;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -24,6 +25,7 @@ import javafx.stage.Stage;
 import model.Autor;
 import model.ClassesDAO.AutorDAO;
 import java.sql.*;
+import java.time.LocalDate;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -93,9 +95,14 @@ public class FormularioAutoresController implements Initializable {
         try {
             Autor autor = autorDAO.buscarAutoresPorId(linha);
             
+            LocalDate localdateNascimento = autor.getDataNascimentoAutor().toLocalDate();
+            LocalDate localdateFalecimento = autor.getDataFalecimentoAutor().toLocalDate();
+            
             codField.setText(Integer.toString(autor.getCodAutor()));
             nomeField.setText(autor.getNomeAutor());
             biografiaField.setText(autor.getBiografiaAutor());
+            dtNascField.setValue(localdateNascimento);
+            dtFaleField.setValue(localdateFalecimento);
             nacionalidadeField.setText(autor.getNacionalidadeAutor());
         } catch (SQLException e) {
             e.printStackTrace();
