@@ -22,9 +22,9 @@ public class TelefoneEditoraDAO {
     public List<TelefoneEditora> listarTodosOsEnderecosClientes() throws SQLException {
         Conexao conexao = new Conexao();
         List<TelefoneEditora> telefoneEditora = new ArrayList();
-        String sql = "SELECT t.telefoneEditora "
-                    + "FROM telefoneeditora t "
-                    + "JOIN editora e ON e.cod_editora = e_id";
+        String sql = "SELECT editora.nome_editora, editora.endereco_editora, telefoneeditora.telefone_editora "
+                   + "FROM editora INNER JOIN telefoneeditora"
+                   + "ON editora.cod_editora = telefoneeditora.cod_editora";
         
         try (Connection conn = conexao.connect(); 
             PreparedStatement stmt = conn.prepareStatement(sql);

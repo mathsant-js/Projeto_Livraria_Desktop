@@ -6,6 +6,7 @@ package model.ClassesDAO;
 
 import conexao.Conexao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -59,18 +60,16 @@ public class AutorDAO {
         return autores;
     }
     
-    public void atualizarAutor(Autor autor) throws SQLException {
+    public void atualizarAutor(int codAutor, String nomeAutor, String biografiaAutor, 
+                                Date dataNascimentoAutor, Date dataFalecimentoAutor, 
+                                String nacionalidadeAutor) throws SQLException 
+    {
         Conexao conexao = new Conexao();
-        String sql = "UPDATE autor SET nome_autor = ?, biografia_autor = ?, data_nascimento_autor = ?, data_falecimento_autor = ?, nacionalidade_autor = ? "
-                   + "WHERE cod_autor = ?";
+        String sql = "UPDATE autor SET nome_autor = '" + nomeAutor + "', biografia_autor = '" + biografiaAutor + "' "
+                   + "WHERE cod_genero = " + codAutor +";";
         
         try (Connection conn = conexao.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-             stmt.setString(1, autor.getNomeAutor());
-             stmt.setString(2, autor.getBiografiaAutor());
-             stmt.setDate(3, autor.getDataNascimentoAutor());
-             stmt.setDate(4, autor.getDataFalecimentoAutor());
-             stmt.setString(5, autor.getNacionalidadeAutor());
              stmt.executeUpdate();
         }
     }
