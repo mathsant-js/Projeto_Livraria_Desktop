@@ -62,7 +62,7 @@
     </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="800.0" prefWidth="1332.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="507.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="11.0" layoutY="45.0" onMouseClicked="#exibirClicado" prefHeight="507.0" prefWidth="567.0">
               <columns>
                 <TableColumn fx:id="codCli" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeCliente" prefWidth="247.0" text="Nome" />
@@ -116,13 +116,13 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="627.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
+            <TextField fx:id="codField" disable="true" layoutX="627.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
             <DatePicker fx:id="dtNascField" layoutX="984.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" style="-fx-border-width: 0;" />
-            <TextField layoutX="173.0" layoutY="10.0" prefHeight="27.0" prefWidth="406.0" />
+            <TextField fx:id="buscaField" layoutX="173.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="406.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
             <Group layoutX="709.0" layoutY="405.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
+                  <Button mnemonicParsing="false" onAction="#novo" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -134,7 +134,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Cadastrar">
+                  <Button layoutX="133.0" mnemonicParsing="false" onAction="#cadastrarCliente" prefHeight="35.0" prefWidth="113.0" text="Cadastrar">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -146,7 +146,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="267.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="Atualizar ">
+                  <Button layoutX="267.0" mnemonicParsing="false" onAction="#atualizarCliente" prefHeight="35.0" prefWidth="113.0" text="Atualizar ">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -158,7 +158,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="404.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="  Excluir  ">
+                  <Button layoutX="404.0" mnemonicParsing="false" onAction="#excluirCliente" prefHeight="35.0" prefWidth="113.0" text="  Excluir  ">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -172,7 +172,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1205.0" layoutY="516.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1205.0" layoutY="516.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -192,6 +192,18 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
+            <Button layoutX="1076.0" layoutY="516.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/voltar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
 </AnchorPane>
   </children>

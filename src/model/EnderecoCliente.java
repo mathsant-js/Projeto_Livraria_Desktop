@@ -9,10 +9,10 @@ package model;
  * @author Admin
  */
 public class EnderecoCliente {
-    private Cliente codCli;
+    private int codCli;
     private String enderecoCliente;
     
-    public EnderecoCliente (Cliente codCli, String enderecoCliente) {
+    public EnderecoCliente (int codCli, String enderecoCliente) {
         this.codCli = codCli;
         this.enderecoCliente = enderecoCliente;
     }
@@ -20,14 +20,14 @@ public class EnderecoCliente {
     /**
      * @return the codCli
      */
-    public Cliente getCodCli() {
+    public int getCodCli() {
         return codCli;
     }
 
     /**
      * @param codCli the codCli to set
      */
-    public void setCodCli(Cliente codCli) {
+    public void setCodCli(int codCli) {
         this.codCli = codCli;
     }
 

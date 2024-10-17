@@ -9,10 +9,10 @@ package model;
  * @author Admin
  */
 public class TelefoneCliente {
-    private Cliente codCli;
+    private int codCli;
     private String telefoneCliente;
     
-    public TelefoneCliente (Cliente codCli, String telefoneCliente) {
+    public TelefoneCliente (int codCli, String telefoneCliente) {
         this.codCli = codCli;
         this.telefoneCliente = telefoneCliente;
     }
@@ -20,14 +20,14 @@ public class TelefoneCliente {
     /**
      * @return the codCli
      */
-    public Cliente getCodCli() {
+    public int getCodCli() {
         return codCli;
     }
 
     /**
      * @param codCli the codCli to set
      */
-    public void setCodCli(Cliente codCli) {
+    public void setCodCli(int codCli) {
         this.codCli = codCli;
     }
 

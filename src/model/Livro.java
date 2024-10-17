@@ -17,25 +17,30 @@ public class Livro {
     private Date dataLancamentoLivro;
     private float precoLivro;
     private int codAutor;
-    private String nomeAutor;
     private int codEditora;
-    private String nomeEditora;
     private int codGenero;
-    private String nomeGenero;
     private String descricaoLivro;
     
-    public Livro(int codLivro, String nomeLivro, String isbnLivro, Date dataLancamentoLivro, float precoLivro, int codAutor, String nomeAutor, int codEditora, String nomeEditora, int codGenero, String nomeGenero, String descricaoLivro) {
+    public Livro(int codLivro, String nomeLivro, String isbnLivro, Date dataLancamentoLivro, float precoLivro, int codAutor, int codEditora, int codGenero, String descricaoLivro) {
         this.codLivro = codLivro;
         this.nomeLivro = nomeLivro;
         this.isbnLivro = isbnLivro;
         this.dataLancamentoLivro = dataLancamentoLivro;
         this.precoLivro = precoLivro;
         this.codAutor = codAutor;
-        this.nomeAutor = nomeAutor;
         this.codEditora = codEditora;
-        this.nomeEditora = nomeEditora;
         this.codGenero = codGenero;
-        this.nomeGenero = nomeGenero;
+        this.descricaoLivro = descricaoLivro;
+    }
+    
+    public Livro(String nomeLivro, String isbnLivro, Date dataLancamentoLivro, float precoLivro, int codAutor, int codEditora, int codGenero, String descricaoLivro) {
+        this.nomeLivro = nomeLivro;
+        this.isbnLivro = isbnLivro;
+        this.dataLancamentoLivro = dataLancamentoLivro;
+        this.precoLivro = precoLivro;
+        this.codAutor = codAutor;
+        this.codEditora = codEditora;
+        this.codGenero = codGenero;
         this.descricaoLivro = descricaoLivro;
     }
 
@@ -124,20 +129,6 @@ public class Livro {
     }
 
     /**
-     * @return the nomeAutor
-     */
-    public String getNomeAutor() {
-        return nomeAutor;
-    }
-
-    /**
-     * @param nomeAutor the nomeAutor to set
-     */
-    public void setNomeAutor(String nomeAutor) {
-        this.nomeAutor = nomeAutor;
-    }
-
-    /**
      * @return the codEditora
      */
     public int getCodEditora() {
@@ -152,20 +143,6 @@ public class Livro {
     }
 
     /**
-     * @return the nomeEditora
-     */
-    public String getNomeEditora() {
-        return nomeEditora;
-    }
-
-    /**
-     * @param nomeEditora the nomeEditora to set
-     */
-    public void setNomeEditora(String nomeEditora) {
-        this.nomeEditora = nomeEditora;
-    }
-
-    /**
      * @return the codGenero
      */
     public int getCodGenero() {
@@ -177,20 +154,6 @@ public class Livro {
      */
     public void setCodGenero(int codGenero) {
         this.codGenero = codGenero;
-    }
-
-    /**
-     * @return the nomeGenero
-     */
-    public String getNomeGenero() {
-        return nomeGenero;
-    }
-
-    /**
-     * @param nomeGenero the nomeGenero to set
-     */
-    public void setNomeGenero(String nomeGenero) {
-        this.nomeGenero = nomeGenero;
     }
 
     /**

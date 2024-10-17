@@ -4,6 +4,7 @@
  */
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -122,6 +123,28 @@ public class FormularioGenerosController implements Initializable {
     }
     
     @FXML
+    private void voltar() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação de retorno");
+        alert.setContentText("Deseja realmente fechar esta tabela e voltar à página inicial?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        ButtonType button = result.orElse(ButtonType.CANCEL);
+        if (button == ButtonType.OK) {
+            Stage newStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource( "teste.fxml" ) );
+            Scene scene = new Scene(root);
+
+            newStage.setTitle("Tela Inicial");
+            newStage.setScene(scene);
+            newStage.show();
+
+            Stage currentStage = (Stage) tabelaGeneros.getScene().getWindow();
+            currentStage.close();
+        }
+    }
+    
+    @FXML
     private void novo() {
         codField.setText("");
         nomeField.setText("");
@@ -137,6 +160,7 @@ public class FormularioGenerosController implements Initializable {
         try {
             generoDAO.cadastrarGenero(genero);
             carregarDadosGenero();
+            novo();
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar gênero: " + e);
         }
@@ -165,6 +189,7 @@ public class FormularioGenerosController implements Initializable {
         try {
             generoDAO.deletarGenero(id);
             carregarDadosGenero();
+            novo();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -36,12 +36,63 @@ public class EmailClienteDAO {
                     rs.getString("senha_cliente")
                 );
                 EmailCliente emailClientes = new EmailCliente (
-                        cliente,
+                            rs.getInt("cod_cliente"),
                         rs.getString("email_cliente")
                 );
                 emailCliente.add(emailClientes);
             }
         }
         return emailCliente;
+    }
+    
+    public EmailCliente obterEmailCliente(int id) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "SELECT * FROM emailcliente WHERE cod_cliente = " +id +";";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+                rs.next();
+                EmailCliente emailcliente = new EmailCliente(
+                        rs.getInt("cod_cliente"),
+                        rs.getString("email_cliente")
+                );
+                return emailcliente;
+        } catch (SQLException e) {
+            EmailCliente emailcliente = new EmailCliente(id, null);
+            return emailcliente;
+        }
+    }
+    
+    public void cadastrarEmailCliente(EmailCliente emailCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "INSERT INTO emailcliente (cod_cliente, email_cliente) VALUES (?, ?);";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);) {
+            stmt.setInt(1, emailCliente.getCodCli());
+            stmt.setString(2, emailCliente.getEmailCliente());
+            stmt.executeUpdate();
+        }
+    }
+    
+    public void atualizarEmailCliente(int codCliente, String emailCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "UPDATE emailcliente SET cod_cliente = " +codCliente +", email_cliente = '" +emailCliente +"';";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);) {
+            stmt.executeUpdate();
+        }
+    }
+    
+    public void deletarEmailCliente(int id) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM emailcliente WHERE cod_cliente = ?";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
     }
 }

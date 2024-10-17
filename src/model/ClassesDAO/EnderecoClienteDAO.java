@@ -39,12 +39,63 @@ public class EnderecoClienteDAO {
                     rs.getString("senha_cliente")
                 );
                 EnderecoCliente enderecoClientes = new EnderecoCliente (
-                        cliente,
-                            rs.getString("endereco_cliente")
+                            rs.getInt("cod_cliente"),
+                      rs.getString("endereco_cliente")
                 );
                 enderecoCliente.add(enderecoClientes);
             }
         }
         return enderecoCliente;
+    }
+    
+    public EnderecoCliente obterEnderecoCliente(int id) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "SELECT * FROM enderecocliente WHERE cod_cliente = " +id +";";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+                rs.next();
+                EnderecoCliente enderecocliente = new EnderecoCliente(
+                        rs.getInt("cod_cliente"),
+                        rs.getString("endereco_cliente")
+                );
+                return enderecocliente;
+        } catch (SQLException e) {
+            EnderecoCliente enderecocliente = new EnderecoCliente(id, null);
+            return enderecocliente;
+        }
+    }
+    
+    public void cadastrarEnderecoCliente(EnderecoCliente enderecoCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "INSERT INTO enderecocliente (cod_cliente, endereco_cliente) VALUES (?, ?);";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);) {
+            stmt.setInt(1, enderecoCliente.getCodCli());
+            stmt.setString(2, enderecoCliente.getEnderecoCliente());
+            stmt.executeUpdate();
+        }
+    }
+    
+    public void atualizarEnderecoCliente(int codCliente, String enderecoCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "UPDATE enderecocliente SET cod_cliente = " +codCliente +", endereco_cliente = '" +enderecoCliente +"';";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);) {
+            stmt.executeUpdate();
+        }
+    }
+    
+    public void deletarEnderecoCliente(int id) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM enderecocliente WHERE cod_cliente = ?";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
     }
 }

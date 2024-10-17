@@ -159,6 +159,18 @@
                </cursor>
             </Label>
             <TextField fx:id="descricaoField" layoutX="608.0" layoutY="183.0" prefHeight="27.0" prefWidth="691.0" />
+            <Button layoutX="1072.0" layoutY="427.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="   Voltar   ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/voltar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
 </AnchorPane>
   </children>
