@@ -60,6 +60,26 @@ public class AutorDAO {
         return autores;
     }
     
+    public Autor buscarGeneroPorId(int id) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "SELECT * FROM autor WHERE cod_autor = " + id + ";";
+        
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+                rs.next();
+                Autor autor = new Autor(
+                    rs.getInt("cod_autor"),
+                   rs.getString("nome_autor"),
+                rs.getString("biografia_autor"),
+            rs.getDate("data_nascimento_autor"),
+           rs.getDate("data_falecimento_autor"),
+             rs.getString("nacionalidade_autor")
+                );
+                return autor;
+        }
+    }
+    
     public List<Autor> buscarAutoresPorNome(String nome) throws SQLException {
         Conexao conexao = new Conexao();
         List<Autor> autores = new ArrayList<>();
