@@ -60,6 +60,30 @@ public class AutorDAO {
         return autores;
     }
     
+    public List<Autor> buscarAutoresPorNome(String nome) throws SQLException {
+        Conexao conexao = new Conexao();
+        List<Autor> autores = new ArrayList<>();
+        String sql = "SELECT * FROM genero WHERE nome_autor LIKE '%" + nome + "%';";
+        
+        try (Connection conn = conexao.connect(); 
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+            
+            while (rs.next()) {
+                Autor autor = new Autor(
+                 rs.getInt("cod_autor"),
+                rs.getString("nome_autor"),
+             rs.getString("biografia_autor"),
+         rs.getDate("data_nascimento_autor"),
+        rs.getDate("data_falecimento_autor"),
+          rs.getString("nacionalidade_autor")
+                );
+                autores.add(autor);
+            }
+        }
+        return autores;
+    }
+    
     public void atualizarAutor(int codAutor, String nomeAutor, String biografiaAutor, 
                                 Date dataNascimentoAutor, Date dataFalecimentoAutor, 
                                 String nacionalidadeAutor) throws SQLException 
