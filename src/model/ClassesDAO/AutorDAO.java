@@ -85,7 +85,7 @@ public class AutorDAO {
     public List<Autor> buscarAutoresPorNome(String nome) throws SQLException {
         Conexao conexao = new Conexao();
         List<Autor> autores = new ArrayList<>();
-        String sql = "SELECT * FROM genero WHERE nome_autor LIKE '%" + nome + "%';";
+        String sql = "SELECT * FROM autor WHERE nome_autor LIKE '%" + nome + "%';";
         
         try (Connection conn = conexao.connect(); 
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -111,8 +111,8 @@ public class AutorDAO {
                                 String nacionalidadeAutor) throws SQLException 
     {
         Conexao conexao = new Conexao();
-        String sql = "UPDATE autor SET nome_autor = '" + nomeAutor + "', biografia_autor = '" + biografiaAutor + "' "
-                   + "WHERE cod_genero = " + codAutor +";";
+        String sql = "UPDATE autor SET nome_autor = '" + nomeAutor + "', biografia_autor = '" + biografiaAutor + "', data_nascimento_autor = '" + dataNascimentoAutor +"', data_falecimento_autor = '" + dataFalecimentoAutor +"', nacionalidade_autor = '" + nacionalidadeAutor + "' "
+                   + "WHERE cod_autor = " + codAutor +";";
         
         try (Connection conn = conexao.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
