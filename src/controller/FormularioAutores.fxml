@@ -62,7 +62,7 @@
     </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="778.0" prefWidth="540.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="11.0" layoutY="45.0" prefHeight="625.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaAutores" editable="true" layoutX="11.0" layoutY="45.0" onMouseClicked="#exibirClicado" prefHeight="625.0" prefWidth="567.0">
               <columns>
                 <TableColumn fx:id="codAutor" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeAutor" prefWidth="203.00003051757812" text="Nome" />
@@ -81,7 +81,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField layoutX="612.0" layoutY="98.0" prefHeight="27.0" prefWidth="317.0" />
+            <TextField fx:id="codField" layoutX="612.0" layoutY="98.0" prefHeight="27.0" prefWidth="317.0" />
             <Label layoutX="981.0" layoutY="77.0" text="Nome">
                <cursor>
                   <Cursor fx:constant="TEXT" />

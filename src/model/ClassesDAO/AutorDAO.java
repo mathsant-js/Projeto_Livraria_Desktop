@@ -60,7 +60,7 @@ public class AutorDAO {
         return autores;
     }
     
-    public Autor buscarGeneroPorId(int id) throws SQLException {
+    public Autor buscarAutoresPorId(int id) throws SQLException {
         Conexao conexao = new Conexao();
         String sql = "SELECT * FROM autor WHERE cod_autor = " + id + ";";
         

@@ -36,7 +36,6 @@ import javafx.scene.control.TextField;
  */
 public class FormularioAutoresController implements Initializable {
 
-    @FXML
     private TableView<Autor> tabelaClientes;
     @FXML
     private Label tituloPag;
@@ -58,6 +57,10 @@ public class FormularioAutoresController implements Initializable {
     private TextField nomeField;
     @FXML
     private TextArea biografiaField;
+    @FXML
+    private TableView<Autor> tabelaAutores;
+    @FXML
+    private TextField codField;
 
     /**
      * Initializes the controller class.
@@ -67,17 +70,33 @@ public class FormularioAutoresController implements Initializable {
         carregarDadosAutor();
     }
     
-    @FXML
     private void carregarDadosAutor() {
         AutorDAO autorDAO = new AutorDAO();
         try {
             List<Autor> autores = autorDAO.listarTodosAutores();
             ObservableList<Autor> observableList = FXCollections.observableArrayList(autores);
-            tabelaClientes.setItems(observableList);
+            tabelaAutores.setItems(observableList);
             codAutor.setCellValueFactory(new PropertyValueFactory<>("codAutor"));
             nomeAutor.setCellValueFactory(new PropertyValueFactory<>("nomeAutor"));
             nacionalidadeAutor.setCellValueFactory(new PropertyValueFactory<>("nacionalidadeAutor"));
             dtNascAutor.setCellValueFactory(new PropertyValueFactory<>("dataNascimentoAutor"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void exibirClicado() {
+        int linha = tabelaAutores.getSelectionModel().getSelectedItem().getCodAutor();
+        AutorDAO autorDAO = new AutorDAO();
+        
+        try {
+            Autor autor = autorDAO.buscarAutoresPorId(linha);
+            
+            codField.setText(Integer.toString(autor.getCodAutor()));
+            nomeField.setText(autor.getNomeAutor());
+            biografiaField.setText(autor.getBiografiaAutor());
+            nacionalidadeField.setText(autor.getNacionalidadeAutor());
         } catch (SQLException e) {
             e.printStackTrace();
         }
