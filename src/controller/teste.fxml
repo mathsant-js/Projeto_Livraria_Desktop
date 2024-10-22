@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="469.0" prefWidth="845.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TesteController">
+<VBox prefHeight="469.0" prefWidth="866.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TesteController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -53,11 +53,16 @@
             <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
           </items>
         </Menu>
+            <Menu mnemonicParsing="false" text="Sobre">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
       </menus>
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="534.0" prefWidth="652.0" VBox.vgrow="ALWAYS">
       <children>
-            <Group layoutX="704.0" layoutY="144.0">
+            <Group layoutX="742.0" layoutY="142.0">
                <children>
                   <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#btnClientes" prefHeight="37.0" prefWidth="89.0" text="Clientes">
                      <font>
@@ -96,24 +101,19 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="259.0" fitWidth="328.0" layoutX="359.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="259.0" fitWidth="328.0" layoutX="359.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <AnchorPane fx:id="sideBar" prefHeight="444.0" prefWidth="219.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="sideBar" prefHeight="444.0" prefWidth="231.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Text fx:id="nomeAdministrador" fill="WHITE" layoutX="14.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Administrador" textAlignment="CENTER">
+                  <Text fx:id="nomeAdministrador" fill="WHITE" layoutX="9.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de Gerenciamento" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="36.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrador Sênior" textAlignment="CENTER">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="btnSair" layoutY="365.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="221.0" text="Sair">
+                  <Button fx:id="btnSair" layoutY="365.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="231.0" text="Sair">
                      <font>
                         <Font size="18.0" />
                      </font>
