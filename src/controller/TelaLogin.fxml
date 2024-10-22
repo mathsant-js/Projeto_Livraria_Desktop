@@ -6,49 +6,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="456.0" prefWidth="675.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
+<AnchorPane id="AnchorPane" prefHeight="415.0" prefWidth="675.0" style="-fx-background-color: #262626;" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
    <children>
-      <Label fx:id="tituloLogin" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="28.0" prefHeight="35.0" prefWidth="218.0" text="Bem-vindo!" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="234.0">
+      <Label fx:id="tituloLogin" alignment="CENTER" contentDisplay="CENTER" layoutX="79.0" layoutY="21.0" prefHeight="35.0" prefWidth="522.0" style="-fx-text-fill: #ff6600;" text="Entrar no Sistema de Gerenciamento da Open Book" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="74.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="campoNome" layoutX="33.0" layoutY="122.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="57.0" prefWidth="622.0" promptText="Nome completo..." AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0">
+      <TextField fx:id="campoNome" layoutX="341.0" layoutY="119.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="42.0" prefWidth="311.0" promptText="Nome completo" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="23.0">
          <font>
-            <Font size="20.0" />
+            <Font size="14.0" />
          </font></TextField>
-      <Label fx:id="rotuloNome" layoutX="31.0" layoutY="82.0" prefHeight="32.0" prefWidth="169.0" text="Digite seu nome:" textFill="WHITE">
+      <Label fx:id="rotuloNome" layoutX="339.0" layoutY="79.0" prefHeight="32.0" prefWidth="169.0" text="Digite seu nome:" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="rotuloSenha" layoutX="33.0" layoutY="203.0" text="Digite sua senha:" textFill="WHITE">
+      <Label fx:id="rotuloSenha" layoutX="341.0" layoutY="190.0" text="Digite sua senha:" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="campoSenha" layoutX="33.0" layoutY="243.0" prefHeight="57.0" prefWidth="622.0" promptText="Senha" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="32.0">
+      <PasswordField fx:id="campoSenha" layoutX="341.0" layoutY="230.0" prefHeight="42.0" prefWidth="311.0" promptText="Senha" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="23.0">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <Button fx:id="botaoEntrar" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="335.0" maxHeight="69.0" maxWidth="180.0" minHeight="26.0" minWidth="126.0" mnemonicParsing="false" onAction="#botaoEntrarAction" prefHeight="49.0" prefWidth="126.0" text="Entrar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
-         </font></PasswordField>
-      <StackPane layoutX="247.0" layoutY="376.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="81.0" prefWidth="195.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="245.0">
-         <children>
-            <Button fx:id="botaoEntrar" alignment="CENTER" contentDisplay="CENTER" maxHeight="57.0" maxWidth="180.0" minHeight="26.0" minWidth="126.0" mnemonicParsing="false" onAction="#botaoEntrarAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: FF6600;" stylesheets="@../style/btnStyle.css" text="Entrar" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-         </children>
-      </StackPane>
-      <Hyperlink layoutX="33.0" layoutY="324.0" onAction="#openSuportLink" text="Esqueceu a sua senha? Contate-nos" textFill="#ff6600" visited="true">
+         </font>
+      </Button>
+      <Hyperlink layoutX="341.0" layoutY="286.0" onAction="#openSuportLink" text="Esqueceu a sua senha? Contate-nos" textFill="#ff6600" visited="true">
          <font>
             <Font size="14.0" />
          </font>
       </Hyperlink>
+      <ImageView fitHeight="134.0" fitWidth="269.0" layoutX="40.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
    </children>
    <padding>
       <Insets top="10.0" />
