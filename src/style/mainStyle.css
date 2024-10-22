@@ -11,6 +11,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: #373737;
 }
 
+#sideBar {
+    -fx-background-color: #262626;
+}
+
+#btnSair {
+    -fx-background-color: #707070;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
 .menu-bar {
     -fx-background-color: #262626;
 }

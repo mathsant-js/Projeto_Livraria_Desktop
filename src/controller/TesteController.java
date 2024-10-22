@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -33,6 +35,12 @@ public class TesteController implements Initializable {
     private Button btnGeneros;
     @FXML
     private Button btnLivros;
+    @FXML
+    private AnchorPane sideBar;
+    @FXML
+    private Text nomeAdministrador;
+    @FXML
+    private Button btnSair;
 
     /**
      * Initializes the controller class.
