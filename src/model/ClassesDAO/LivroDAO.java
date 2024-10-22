@@ -167,14 +167,14 @@ public class LivroDAO {
     
     public void deletarLivro (int codLivro) throws SQLException {
         Conexao conexao = new Conexao();
-        String sql = "DELETE FROM livro WHERE cod_livro = ?";
+        String sql = "DELETE FROM autorlivro WHERE cod_livro = ?";
         try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, codLivro);
             stmt.executeUpdate();
         }
         
-        sql = "DELETE FROM autorlivro WHERE cod_livro = ?";
+        sql = "DELETE FROM livro WHERE cod_livro = ?";
         try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, codLivro);

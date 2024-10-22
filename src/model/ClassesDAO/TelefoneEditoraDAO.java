@@ -33,15 +33,15 @@ public class TelefoneEditoraDAO {
     
     public TelefoneEditora obterTelefoneEditora(int id) throws SQLException {
         Conexao conexao = new Conexao();
-        String sql = "SELECT * FROM telefoneeditora WHERE cod_cliente = " +id +";";
+        String sql = "SELECT * FROM telefoneeditora WHERE cod_editora = " +id +";";
         
         try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery()) {
                 rs.next();
                 TelefoneEditora telefoneeditora = new TelefoneEditora(
-                        rs.getInt("cod_cliente"),
-                        rs.getString("telefone_cliente")
+                        rs.getInt("cod_editora"),
+                        rs.getString("telefone_editora")
                 );
                 return telefoneeditora;
         } catch (SQLException e) {
@@ -63,6 +63,15 @@ public class TelefoneEditoraDAO {
                         rs.getString("telefone_editora")
                 );
                 return telefoneEditora;
+        }
+    }
+    
+    public void deletarTelefoneEditora(int codEditora) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM telefoneeditora WHERE cod_editora = " +codEditora +";";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
         }
     }
 }

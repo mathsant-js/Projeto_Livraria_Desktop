@@ -197,6 +197,7 @@ public class FormularioEditorasController implements Initializable {
     private void excluirEditora() {
         int id = Integer.parseInt(codField.getText());
         EditoraDAO editoraDAO = new EditoraDAO();
+        TelefoneEditoraDAO telefoneEditoraDAO = new TelefoneEditoraDAO();
         
         try {
             editoraDAO.deletarEditora(id);

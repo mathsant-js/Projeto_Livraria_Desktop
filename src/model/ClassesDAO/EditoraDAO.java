@@ -121,11 +121,15 @@ public class EditoraDAO {
     
     public void deletarEditora (int codEditora) throws SQLException {
         Conexao conexao = new Conexao();
-        String sql = "DELETE FROM editora WHERE cod_editora = " +codEditora +"; \n"
-                    +"DELETE FROM telefoneeditora WHERE cod_editora = " +codEditora +";";
+        String sql = "DELETE FROM editora WHERE cod_editora = ?";
         
         try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, codEditora);
+            
+            TelefoneEditoraDAO telefoneEditoraDAO = new TelefoneEditoraDAO();
+            telefoneEditoraDAO.deletarTelefoneEditora(codEditora);
+            
             stmt.executeUpdate();
         }
     }

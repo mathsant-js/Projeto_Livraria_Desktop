@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="751.0" prefWidth="1486.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioAutoresController">
+<VBox prefHeight="751.0" prefWidth="1486.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioAutoresController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -82,7 +82,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField fx:id="codField" layoutX="773.0" layoutY="98.0" prefHeight="27.0" prefWidth="317.0" />
+            <TextField fx:id="codField" disable="true" layoutX="773.0" layoutY="98.0" prefHeight="27.0" prefWidth="317.0" />
             <Label layoutX="1142.0" layoutY="77.0" text="Nome">
                <cursor>
                   <Cursor fx:constant="TEXT" />
@@ -101,8 +101,8 @@
             </Label>
             <DatePicker fx:id="dtFaleField" layoutX="1142.0" layoutY="166.0" prefHeight="27.0" prefWidth="317.0" style="-fx-border-width: 0;" />
             <TextField fx:id="nomeField" layoutX="1142.0" layoutY="99.0" prefHeight="27.0" prefWidth="317.0" />
-            <TextField fx:id="buscaField" layoutX="197.0" layoutY="2.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="504.0" />
-            <Label layoutX="21.0" layoutY="14.0" prefWidth="190.0" text="Pesquisar por nome:" />
+            <TextField fx:id="buscaField" layoutX="197.0" layoutY="11.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="504.0" />
+            <Label layoutX="21.0" layoutY="16.0" prefWidth="190.0" text="Pesquisar por nome:" />
             <Group layoutX="866.0" layoutY="539.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#novo" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
@@ -181,10 +181,17 @@
                </cursor>
             </Label>
             <TextArea fx:id="biografiaField" layoutX="773.0" layoutY="300.0" prefHeight="200.0" prefWidth="690.0" wrapText="true" />
-            <Button layoutX="1224.0" layoutY="659.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="   Voltar    ">
+            <Button layoutX="1216.0" layoutY="659.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
                <font>
                   <Font size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/voltar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
 </AnchorPane>

@@ -192,6 +192,7 @@ public class FormularioAutoresController implements Initializable {
         try {
             autorDAO.cadastrarAutor(autor);
             carregarDadosAutor();
+            novo();
         } catch (Exception e) {
             System.out.println("Erro ao adicionar autor: " + e.getMessage());
         }
@@ -223,6 +224,7 @@ public class FormularioAutoresController implements Initializable {
         try {
             autorDAO.deletarAutor(id);
             carregarDadosAutor();
+            novo();
         } catch (SQLException e) {
             e.printStackTrace();
         }

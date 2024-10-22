@@ -159,7 +159,6 @@ public class ClienteDAO {
         try (Connection conn = conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, codCliente);
-            stmt.executeUpdate();
             
             TelefoneClienteDAO telefoneClienteDAO = new TelefoneClienteDAO();
             telefoneClienteDAO.deletarTelefoneCliente(codCliente);
@@ -169,6 +168,8 @@ public class ClienteDAO {
             
             EmailClienteDAO emailClienteDAO = new EmailClienteDAO();
             emailClienteDAO.deletarEmailCliente(codCliente);
+            
+            stmt.executeUpdate();
         }
     }
 }
