@@ -160,24 +160,15 @@ public class ClienteDAO {
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, codCliente);
             stmt.executeUpdate();
-        }
-        
-        String sql2 = "DELETE FROM telefonecliente WHERE cod_cliente = " +codCliente +";";
-        try (Connection conn = conexao.connect();
-            PreparedStatement stmt = conn.prepareStatement(sql2)) {
-            stmt.executeUpdate();
-        }
-        
-        sql2 = "DELETE FROM enderecocliente WHERE cod_cliente = " +codCliente +";";
-        try (Connection conn = conexao.connect();
-            PreparedStatement stmt = conn.prepareStatement(sql2)) {
-            stmt.executeUpdate();
-        }
-        
-        sql2 = "DELETE FROM emailcliente WHERE cod_cliente = " +codCliente +";";
-        try (Connection conn = conexao.connect();
-            PreparedStatement stmt = conn.prepareStatement(sql2)) {
-            stmt.executeUpdate();
+            
+            TelefoneClienteDAO telefoneClienteDAO = new TelefoneClienteDAO();
+            telefoneClienteDAO.deletarTelefoneCliente(codCliente);
+            
+            EnderecoClienteDAO enderecoClienteDAO = new EnderecoClienteDAO();
+            enderecoClienteDAO.deletarEnderecoCliente(codCliente);
+            
+            EmailClienteDAO emailClienteDAO = new EmailClienteDAO();
+            emailClienteDAO.deletarEmailCliente(codCliente);
         }
     }
 }

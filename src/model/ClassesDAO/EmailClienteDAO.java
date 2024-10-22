@@ -62,4 +62,13 @@ public class EmailClienteDAO {
                 return emailCliente;
         }
     }
+    
+    public void deletarEmailCliente(int codCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM emailcliente WHERE cod_cliente = " +codCliente +";";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        }
+    }
 }

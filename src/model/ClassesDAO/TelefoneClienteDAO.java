@@ -66,4 +66,13 @@ public class TelefoneClienteDAO {
                 return telefoneCliente;
         }
     }
+    
+    public void deletarTelefoneCliente(int codCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM telefonecliente WHERE cod_cliente = " +codCliente +";";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        }
+    }
 }

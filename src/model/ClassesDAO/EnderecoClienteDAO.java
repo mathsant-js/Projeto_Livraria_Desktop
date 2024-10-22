@@ -65,4 +65,13 @@ public class EnderecoClienteDAO {
                 return enderecoCliente;
         }
     }
+    
+    public void deletarEnderecoCliente(int codCliente) throws SQLException {
+        Conexao conexao = new Conexao();
+        String sql = "DELETE FROM enderecocliente WHERE cod_cliente = " +codCliente +";";
+        try (Connection conn = conexao.connect();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        }
+    }
 }

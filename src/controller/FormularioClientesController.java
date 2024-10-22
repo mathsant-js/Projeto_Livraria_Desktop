@@ -251,6 +251,7 @@ public class FormularioClientesController implements Initializable {
         
         try {
             clienteDAO.deletarCliente(id);
+            carregarDadosCliente();
             novo();
         } catch (SQLException e) {
             e.printStackTrace();
