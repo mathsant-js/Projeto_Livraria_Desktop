@@ -19,50 +19,42 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="751.0" prefWidth="1486.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioAutoresController">
+<VBox prefHeight="736.0" prefWidth="1486.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioAutoresController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Tabela">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Abrir Tabela..." />
+                  <MenuItem mnemonicParsing="false" text="Atualizar tabela" />
+                  <MenuItem mnemonicParsing="false" text="Fechar Tabela" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Sair da aplicação" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Registro">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Novo Registro" />
+                  <MenuItem mnemonicParsing="false" text="Salvar registro" />
+                  <MenuItem mnemonicParsing="false" text="Excluir registro" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Ajuda">
+               <items>
+                  <Menu mnemonicParsing="false" text="Suporte">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Reportar problema para Lucas Tino - Desenvolvedor" />
+                        <MenuItem mnemonicParsing="false" text="Reportar problema para Matheus Santana - Desenvolvedor" />
+                     </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="Sobre" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="778.0" prefWidth="1173.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaAutores" editable="true" layoutX="11.0" layoutY="51.0" onMouseClicked="#exibirClicado" prefHeight="665.0" prefWidth="690.0">
+            <TableView id="Content" fx:id="tabelaAutores" editable="true" layoutX="11.0" layoutY="51.0" onMouseClicked="#exibirClicado" prefHeight="649.0" prefWidth="690.0">
               <columns>
                 <TableColumn fx:id="codAutor" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeAutor" prefWidth="203.00003051757812" text="Nome" />

@@ -19,45 +19,37 @@
 
 <VBox prefHeight="501.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioGenerosController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Tabela">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Abrir Tabela..." />
+                  <MenuItem mnemonicParsing="false" text="Atualizar tabela" />
+                  <MenuItem mnemonicParsing="false" text="Fechar Tabela" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Sair da aplicação" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Registro">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Novo Registro" />
+                  <MenuItem mnemonicParsing="false" text="Salvar registro" />
+                  <MenuItem mnemonicParsing="false" text="Excluir registro" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Ajuda">
+               <items>
+                  <Menu mnemonicParsing="false" text="Suporte">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Reportar problema para Lucas Tino - Desenvolvedor" />
+                        <MenuItem mnemonicParsing="false" text="Reportar problema para Matheus Santana - Desenvolvedor" />
+                     </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="Sobre" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="541.0" prefWidth="1247.0" stylesheets="@../style/tableStyle.css">
          <children>
             <TableView id="Content" fx:id="tabelaGeneros" editable="true" layoutX="11.0" layoutY="45.0" onMouseClicked="#exibirClicado" prefHeight="421.0" prefWidth="567.0">
