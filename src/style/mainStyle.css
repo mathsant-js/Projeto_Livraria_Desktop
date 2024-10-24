@@ -27,6 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .menu {
     -fx-background-color: #262626;
+    -fx-border-color: transparent;
 }
 
 .menu:hover {
@@ -42,8 +43,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: #FF6600;
 }
 
-.separator-menu-item {
-    -fx-background-color: transparent;
+.context-menu {
+    -fx-background-color: #262626;
+    -fx-padding: 0px;
+}
+
+.context-menu .separator:horizontal .line {
+    -fx-border-color: #FF6600 transparent transparent transparent;
+    -fx-border-insets: 1 0 0 0;
 }
 
 .table-view {
