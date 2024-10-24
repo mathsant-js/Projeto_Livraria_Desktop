@@ -130,6 +130,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: #000000;
 }
 
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #262626;
+    -fx-text-fill: white;
+}
+
 .button {
     -fx-background-color: #FF6600;
     -fx-text-fill: #FFFFFF;
