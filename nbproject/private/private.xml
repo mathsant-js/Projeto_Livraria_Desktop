@@ -3,22 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/EditoraDAO.java</file>
             <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/controller/FormularioAutoresController.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/TelefoneEditoraDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/EmailClienteDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/ListaDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/Cliente.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/EnderecoClienteDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/controller/FormularioClientes.fxml</file>
+            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/AutorDAO.java</file>
             <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/controller/FormularioGenerosController.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/Editora.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/LivroDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/GeneroDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/Livro.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/ClienteDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/model/ClassesDAO/TelefoneClienteDAO.java</file>
-            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/controller/FormularioClientesController.java</file>
+            <file>file:/C:/Users/Matheus%20Santana/Documents/NetBeansProjects/Projeto_Livraria_Desktop/src/controller/FormularioAutores.fxml</file>
         </group>
     </open-files>
 </project-private>

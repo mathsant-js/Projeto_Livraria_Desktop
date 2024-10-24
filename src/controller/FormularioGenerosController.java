@@ -151,18 +151,34 @@ public class FormularioGenerosController implements Initializable {
         descricaoField.setText("");
     }
     
+    private boolean verificacaoCampos() {
+        if ("".equals(nomeField.getText()) && "".equals(descricaoField.getText())){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campos vazios!!!");
+            alert.setContentText("Campo nome vazio!\nCampo descrição vazio!\nDigite o nome e a descrição do gênero.");
+            alert.showAndWait();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     @FXML
     private void cadastrarGenero() {
-        String nomeGenero = nomeField.getText();
-        String descricaoGenero = descricaoField.getText();
-        GeneroDAO generoDAO = new GeneroDAO();
-        Genero genero = new Genero(nomeGenero, descricaoGenero);
-        try {
-            generoDAO.cadastrarGenero(genero);
-            carregarDadosGenero();
-            novo();
-        } catch (Exception e) {
-            System.out.println("Erro ao cadastrar gênero: " + e);
+        if (verificacaoCampos()) {
+        } else {
+            String nomeGenero = nomeField.getText();
+            String descricaoGenero = descricaoField.getText();
+            GeneroDAO generoDAO = new GeneroDAO();
+            Genero genero = new Genero(nomeGenero, descricaoGenero);
+            try {
+                generoDAO.cadastrarGenero(genero);
+                carregarDadosGenero();
+                novo();
+            } catch (Exception e) {
+                System.out.println("Erro ao cadastrar gênero: " + e);
+            }
         }
     }
     
