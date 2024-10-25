@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="501.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioGenerosController">
+<VBox prefHeight="545.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioGenerosController">
   <children>
       <MenuBar>
          <menus>
@@ -52,26 +52,26 @@
       </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="541.0" prefWidth="1247.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaGeneros" editable="true" layoutX="11.0" layoutY="45.0" onMouseClicked="#exibirClicado" prefHeight="421.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaGeneros" editable="true" layoutX="14.0" layoutY="69.0" onMouseClicked="#exibirClicado" prefHeight="421.0" prefWidth="567.0">
               <columns>
                 <TableColumn fx:id="codGenero" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeGenero" prefWidth="250.00003051757812" text="Nome" />
                   <TableColumn fx:id="descricaoGenero" prefWidth="233.0" text="Descrição" />
               </columns>
             </TableView>
-            <Label layoutX="974.0" layoutY="92.0" text="Nome">
+            <Label layoutX="974.0" layoutY="89.0" text="Nome">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
             <TextField fx:id="nomeField" layoutX="974.0" layoutY="114.0" prefHeight="27.0" prefWidth="325.0" />
-            <Label layoutX="608.0" layoutY="92.0" text="Código">
+            <Label layoutX="608.0" layoutY="89.0" text="Código">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
             <TextField fx:id="codField" disable="true" layoutX="608.0" layoutY="114.0" prefHeight="27.0" prefWidth="325.0" />
-            <TextField fx:id="buscaField" layoutX="173.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="406.0" />
+            <TextField fx:id="buscaField" layoutX="192.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="41.0" prefWidth="388.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
             <Group layoutX="716.0" layoutY="318.0">
                <children>
@@ -125,7 +125,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1205.0" layoutY="427.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1205.0" layoutY="444.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -145,13 +145,13 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
-            <Label layoutX="608.0" layoutY="161.0" text="Descrição">
+            <Label layoutX="608.0" layoutY="158.0" text="Descrição">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
             <TextField fx:id="descricaoField" layoutX="608.0" layoutY="183.0" prefHeight="27.0" prefWidth="691.0" />
-            <Button layoutX="1072.0" layoutY="427.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="   Voltar   ">
+            <Button layoutX="1072.0" layoutY="444.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="   Voltar   ">
                <font>
                   <Font size="14.0" />
                </font>
