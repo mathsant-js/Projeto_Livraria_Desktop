@@ -157,11 +157,30 @@ public class FormularioGenerosController implements Initializable {
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campos vazios!!!");
             alert.setContentText("Campo nome vazio!\nCampo descrição vazio!\nDigite o nome e a descrição do gênero.");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
             alert.showAndWait();
             return true;
-        } else {
-            return false;
+        } else if ("".equals(nomeField.getText())){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!!!");
+            alert.setContentText("Campo nome vazio!\nDigite o nome do gênero.");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            alert.showAndWait();
+            return true;
+        } else if ("".equals(descricaoField.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!!!");
+            alert.setContentText("Campo descrição vazio!\nDigite a descrição do gênero.");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            alert.showAndWait();
+            return true;
         }
+        return false;
     }
     
     @FXML

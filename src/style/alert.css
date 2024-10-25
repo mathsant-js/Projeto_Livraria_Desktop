@@ -1,0 +1,36 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24 de out. de 2024, 18:37:33
+    Author     : Matheus Santana
+*/
+
+.custom-alert {
+    -fx-background-color: #262626; /* Cor de fundo do Alert */
+    -fx-border-width: 2;           /* Largura da borda */
+    -fx-border-radius: 10;         /* Borda arredondada */
+    -fx-padding: 20;               /* Espaçamento interno */
+}
+
+.custom-alert .dialog-pane {
+    -fx-background-color: #FF6600;
+}
+
+.custom-alert .button-bar .button {
+    -fx-background-color: #FF6600;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+}
+
+.custom-alert .content {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+.custom-alert .header-panel {
+    -fx-background-color: #FF6600;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
