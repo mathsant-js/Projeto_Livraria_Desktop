@@ -34,6 +34,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -180,21 +182,107 @@ public class FormularioAutoresController implements Initializable {
         biografiaField.setText("");
     }
     
+    private boolean verificacaoCampos() {
+        if ("".equals(nomeField.getText()) && "".equals(biografiaField.getText())){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campos vazios!!!");
+            alert.setContentText("Todos os campos estão vazios");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } else if ("".equals(nomeField.getText())){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!!!");
+            alert.setContentText("Algum dos campos está vazio!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } else if ("".equals(biografiaField.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Algum dos campos está vazio!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } else if ("".equals(dtNascField.getValue())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Algum dos campos está vazio!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } else if (dtNascField.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Algum dos campos está vazio!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } else if (dtFaleField.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Algum dos campos está vazio!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        }
+        return false;
+    }
+    
     @FXML
     private void cadastrarAutor() {
-        String nomeAutor = nomeField.getText();
-        Date dataNascimentoAutor = Date.valueOf(dtNascField.getValue());
-        Date dataFalecimentoAutor = Date.valueOf(dtFaleField.getValue());
-        String nacionalidadeAutor = nacionalidadeField.getText();
-        String biografiaAutor = biografiaField.getText();
-        AutorDAO autorDAO = new AutorDAO();
-        Autor autor = new Autor(nomeAutor, biografiaAutor, dataNascimentoAutor, dataFalecimentoAutor, nacionalidadeAutor);
-        try {
-            autorDAO.cadastrarAutor(autor);
-            carregarDadosAutor();
-            novo();
-        } catch (Exception e) {
-            System.out.println("Erro ao adicionar autor: " + e.getMessage());
+        if (verificacaoCampos()) {
+        } else {
+            String nomeAutor = nomeField.getText();
+            Date dataNascimentoAutor = Date.valueOf(dtNascField.getValue());
+            Date dataFalecimentoAutor = Date.valueOf(dtFaleField.getValue());
+            String nacionalidadeAutor = nacionalidadeField.getText();
+            String biografiaAutor = biografiaField.getText();
+            AutorDAO autorDAO = new AutorDAO();
+            Autor autor = new Autor(nomeAutor, biografiaAutor, dataNascimentoAutor, dataFalecimentoAutor, nacionalidadeAutor);
+            try {
+                autorDAO.cadastrarAutor(autor);
+                carregarDadosAutor();
+                novo();
+            } catch (Exception e) {
+                System.out.println("Erro ao adicionar autor: " + e.getMessage());
+            }
         }
     }
     

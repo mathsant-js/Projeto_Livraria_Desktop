@@ -30,6 +30,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -159,6 +161,10 @@ public class FormularioGenerosController implements Initializable {
             alert.setContentText("Campo nome vazio!\nCampo descrição vazio!\nDigite o nome e a descrição do gênero.");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
         } else if ("".equals(nomeField.getText())){
@@ -168,15 +174,23 @@ public class FormularioGenerosController implements Initializable {
             alert.setContentText("Campo nome vazio!\nDigite o nome do gênero.");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
         } else if ("".equals(descricaoField.getText())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
-            alert.setHeaderText("Campo vazio!!!");
+            alert.setHeaderText("Campo vazio!");
             alert.setContentText("Campo descrição vazio!\nDigite a descrição do gênero.");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
         }
