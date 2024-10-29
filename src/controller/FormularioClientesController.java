@@ -361,9 +361,21 @@ public class FormularioClientesController implements Initializable {
         EnderecoClienteDAO enderecoclienteDAO = new EnderecoClienteDAO();
         
         try {
-            clienteDAO.deletarCliente(id);
-            carregarDadosCliente();
-            novo();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Deleção de Cadastro");
+            alert.setContentText("Deseja realmente deletar o cadastro?");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            Optional<ButtonType> result = alert.showAndWait();
+            ButtonType button = result.orElse(ButtonType.CANCEL);
+            if (button == ButtonType.OK) {
+                clienteDAO.deletarCliente(id);
+                carregarDadosCliente();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

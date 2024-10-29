@@ -329,6 +329,19 @@ public class FormularioLivrosController implements Initializable {
         return false;
     }
     
+    private boolean confirmarDelecao() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação de deleção de cadastro");
+        alert.setContentText("Deseja realmente deletar o cadastro selecionado?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        ButtonType button = result.orElse(ButtonType.CANCEL);
+        if (button == ButtonType.OK) {
+            
+        }
+        return true;
+    }
+    
     @FXML
     private void cadastrarLivro() {
         String nomeLivro = tituloField.getText();
@@ -379,9 +392,21 @@ public class FormularioLivrosController implements Initializable {
         LivroDAO livroDAO = new LivroDAO();
         
         try {
-            livroDAO.deletarLivro(id);
-            carregarDadosLivro();
-            novo();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Deleção de Cadastro");
+            alert.setContentText("Deseja realmente deletar o cadastro?");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            Optional<ButtonType> result = alert.showAndWait();
+            ButtonType button = result.orElse(ButtonType.CANCEL);
+            if (button == ButtonType.OK) {
+                livroDAO.deletarLivro(id);
+                carregarDadosLivro();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
