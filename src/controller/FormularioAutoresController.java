@@ -80,6 +80,7 @@ public class FormularioAutoresController implements Initializable {
     
     public void initialize(URL url, ResourceBundle rb) {
         carregarDadosAutor();
+        setarFormatacoes();
     }
     
     private void carregarDadosAutor() {
@@ -180,6 +181,35 @@ public class FormularioAutoresController implements Initializable {
         dtFaleField.setValue(null);
         nacionalidadeField.setText("");
         biografiaField.setText("");
+    }
+    
+    private void setarFormatacoes() {
+        setarFormatacaoNome(nomeField);
+        setarFormatacaoNacionalidade(nacionalidadeField);
+    }
+    
+    private void setarFormatacaoNome(TextField textField) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            formatacaoNome(textField, newValue);
+        });
+    }
+    
+    private void formatacaoNome(TextField textField, String newValue) {
+        if (!newValue.matches("[a-zA-Z]*")) {
+            textField.setText(newValue.replaceAll("[^a-zA-Z]", ""));
+        }
+    }
+    
+    private void setarFormatacaoNacionalidade(TextField textField) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            formatacaoNacionalidade(textField, newValue);
+        });
+    }
+    
+    private void formatacaoNacionalidade(TextField textField, String newValue) {
+        if (!newValue.matches("[a-zA-Z]*")) {
+            textField.setText(newValue.replaceAll("[^a-zA-Z]", ""));
+        }
     }
     
     private boolean verificacaoCampos() {
