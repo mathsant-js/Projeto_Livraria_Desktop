@@ -123,16 +123,66 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-box-shadow: 0 0 5px rgba(255, 102, 0, 0.75);
 }
 
+.calendar-grid {
+    -fx-border-width: 0px;
+    -fx-background-color: #393939;
+}
+
 .date-picker {
-    -fx-border-style: none;
-    -fx-border-color: transparent;
+    -fx-border-width: 0px;
     -fx-background-color: #262626;
     -fx-text-fill: #000000;
+}
+
+.date-picker-popup {
+    -fx-border-width: 0px;
 }
 
 .date-picker-popup > .month-year-pane {
     -fx-background-color: #262626;
     -fx-text-fill: white;
+}
+
+.date-picker-popup .spinner .button {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: #FF6600;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #262626;
+    -fx-background-radius: 0px;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #FF6600;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: #00FF00;
+}
+
+.date-picker .cell {
+    -fx-background-color: #393939;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 0px;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: #FF6600;
+}
+
+.date-picker-popup > * > .previous-month,
+.date-picker-popup > * > .next-month {
+    -fx-text-fill: #888888;
+}
+
+.date-picker-popup > * > .previous-month:hover,
+.date-picker-popup > * > .next-month:hover {
+    -fx-background-color: #DD4400;
 }
 
 .button {
