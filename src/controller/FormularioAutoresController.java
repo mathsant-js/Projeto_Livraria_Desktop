@@ -27,6 +27,8 @@ import model.Autor;
 import model.ClassesDAO.AutorDAO;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -186,6 +188,8 @@ public class FormularioAutoresController implements Initializable {
     private void setarFormatacoes() {
         setarFormatacaoNome(nomeField);
         setarFormatacaoNacionalidade(nacionalidadeField);
+        setarData(dtNascField);
+        setarData(dtFaleField);
     }
     
     private void setarFormatacaoNome(TextField textField) {
@@ -198,6 +202,10 @@ public class FormularioAutoresController implements Initializable {
         if (!newValue.matches("[a-zA-Z]*")) {
             textField.setText(newValue.replaceAll("[^a-zA-Z]", ""));
         }
+    }
+    
+    private void setarData(DatePicker datepicker) {
+        datepicker.setPromptText("DD/MM/AAAA");
     }
     
     private void setarFormatacaoNacionalidade(TextField textField) {
@@ -252,24 +260,11 @@ public class FormularioAutoresController implements Initializable {
             alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
-        } else if ("".equals(dtNascField.getValue())) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Mensagem do Programa");
-            alert.setHeaderText("Campo vazio!");
-            alert.setContentText("Algum dos campos está vazio!");
-            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
-            alert.getDialogPane().getStyleClass().add("custom-alert");
-            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
-            icon.setFitHeight(48);
-            icon.setFitWidth(48);
-            alert.getDialogPane().setGraphic(icon);
-            alert.showAndWait();
-            return true;
         } else if (dtNascField.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");
-            alert.setContentText("Algum dos campos está vazio!");
+            alert.setContentText("Algum dos campos está vazio ou está incorreto!");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
@@ -282,7 +277,7 @@ public class FormularioAutoresController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");
-            alert.setContentText("Algum dos campos está vazio!");
+            alert.setContentText("Algum dos campos está vazio ou está incorreto!");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
