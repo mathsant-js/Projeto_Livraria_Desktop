@@ -133,6 +133,24 @@ public class TesteController implements Initializable {
     }
     
     @FXML
+    private void sair() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação de saída");
+        alert.setContentText("Deseja realmente sair do programa?");
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("custom-alert");
+        ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+        icon.setFitHeight(48);
+        icon.setFitWidth(48);
+        alert.getDialogPane().setGraphic(icon);
+        Optional<ButtonType> result = alert.showAndWait();
+        ButtonType button = result.orElse(ButtonType.CANCEL);
+        if (button == ButtonType.OK) {
+            System.exit(0);
+        }
+    }
+    
+    @FXML
     private void voltarParaLogin() throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmação de saída");

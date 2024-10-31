@@ -32,7 +32,7 @@
                   <MenuItem disable="true" mnemonicParsing="false" text="Atualizar tabela" />
                   <MenuItem disable="true" mnemonicParsing="false" text="Fechar Tabela" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Sair da aplicação" />
+                  <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair da aplicação" />
                </items>
             </Menu>
             <Menu disable="true" mnemonicParsing="false" text="Registro">
