@@ -169,6 +169,30 @@ public class FormularioGenerosController implements Initializable {
     }
     
     @FXML
+    private void abritAutorTabela() throws IOException {
+        AbrirTabelas autor = new AbrirTabelas();
+        autor.abrirAutores(tabelaGeneros);
+    }
+    
+    @FXML
+    private void abrirClienteTabela() throws IOException {
+        AbrirTabelas autor = new AbrirTabelas();
+        autor.abrirCliente(tabelaGeneros);
+    }
+    
+    @FXML
+    private void abrirEditoraTabela() throws IOException {
+        AbrirTabelas cliente = new AbrirTabelas();
+        cliente.abrirEditoras(tabelaGeneros);
+    }
+    
+    @FXML
+    private void abrirLivroTabela() throws IOException {
+        AbrirTabelas cliente = new AbrirTabelas();
+        cliente.abrirLivros(tabelaGeneros);
+    }
+    
+    @FXML
     private void novo() {
         codField.setText("");
         nomeField.setText("");

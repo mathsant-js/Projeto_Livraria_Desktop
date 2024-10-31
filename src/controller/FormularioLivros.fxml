@@ -25,11 +25,18 @@
          <menus>
             <Menu mnemonicParsing="false" text="Tabela">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Abrir Tabela..." />
+                  <Menu mnemonicParsing="false" text="Abrir Tabelas...">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#abritAutorTabela" text="Autor" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirClienteTabela" text="Cliente" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirEditoraTabela" text="Editora" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirGeneroTabela" text="Gênero" />
+                    </items>
+                  </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#carregarDadosLivro" text="Atualizar tabela" />
-                  <MenuItem mnemonicParsing="false" text="Fechar Tabela" />
+                  <MenuItem mnemonicParsing="false" onAction="#voltar" text="Fechar Tabela" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Sair da aplicação" />
+                  <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair da aplicação" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Registro">

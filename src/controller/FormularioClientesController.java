@@ -204,6 +204,30 @@ public class FormularioClientesController implements Initializable {
     }
     
     @FXML
+    private void abritAutorTabela() throws IOException {
+        AbrirTabelas autor = new AbrirTabelas();
+        autor.abrirAutores(tabelaClientes);
+    }
+    
+    @FXML
+    private void abrirEditoraTabela() throws IOException {
+        AbrirTabelas autor = new AbrirTabelas();
+        autor.abrirEditoras(tabelaClientes);
+    }
+    
+    @FXML
+    private void abrirGeneroTabela() throws IOException {
+        AbrirTabelas cliente = new AbrirTabelas();
+        cliente.abrirGeneros(tabelaClientes);
+    }
+    
+    @FXML
+    private void abrirLivroTabela() throws IOException {
+        AbrirTabelas cliente = new AbrirTabelas();
+        cliente.abrirLivros(tabelaClientes);
+    }
+    
+    @FXML
     private void novo() {
         codField.setText("");
         nomeField.setText("");
