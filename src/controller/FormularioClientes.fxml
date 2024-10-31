@@ -34,9 +34,9 @@
                     </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#carregarDadosCliente" text="Atualizar tabela" />
-            <MenuItem mnemonicParsing="false" text="Fechar Tabela" />
+            <MenuItem mnemonicParsing="false" onAction="#voltar" text="Fechar Tabela" />
             <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Sair da aplicação" />
+                  <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair da aplicação" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Registro">
