@@ -94,6 +94,7 @@ public class FormularioLivrosController implements Initializable {
         carregarDadosLivro();
     }    
     
+    @FXML
     private void carregarDadosLivro() {
         LivroDAO livroDAO = new LivroDAO();
         try {
@@ -106,6 +107,17 @@ public class FormularioLivrosController implements Initializable {
             dtLancLivro.setCellValueFactory(new PropertyValueFactory<>("dataLancamentoLivro"));
         } catch (SQLException e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Não foi possível atualizar a tabela");
+            alert.setContentText("Erro no banco de dados do sistema!\nContate o suporte!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
         }
     }
     

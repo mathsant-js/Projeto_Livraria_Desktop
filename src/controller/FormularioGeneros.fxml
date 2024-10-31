@@ -24,7 +24,7 @@
             <Menu mnemonicParsing="false" text="Tabela">
                <items>
                   <MenuItem mnemonicParsing="false" text="Abrir Tabela..." />
-                  <MenuItem mnemonicParsing="false" text="Atualizar tabela" />
+                  <MenuItem mnemonicParsing="false" onAction="#carregarDadosGenero" text="Atualizar tabela" />
                   <MenuItem mnemonicParsing="false" text="Fechar Tabela" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Sair da aplicação" />
@@ -32,9 +32,10 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Registro">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Novo Registro" />
-                  <MenuItem mnemonicParsing="false" text="Salvar registro" />
-                  <MenuItem mnemonicParsing="false" text="Excluir registro" />
+                  <MenuItem mnemonicParsing="false" onAction="#novo" text="Novo Registro" />
+                  <MenuItem mnemonicParsing="false" onAction="#cadastrarGenero" text="Salvar registro" />
+                  <MenuItem mnemonicParsing="false" onAction="#atualizarGenero" text="Atualizar registro" />
+                  <MenuItem mnemonicParsing="false" onAction="#excluirGenero" text="Excluir registro" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Ajuda">

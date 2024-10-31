@@ -87,6 +87,7 @@ public class FormularioClientesController implements Initializable {
         carregarDadosCliente();
     }    
     
+    @FXML
     private void carregarDadosCliente() {
         ClienteDAO clienteDAO = new ClienteDAO();
         try {
@@ -99,6 +100,17 @@ public class FormularioClientesController implements Initializable {
             dtNascCliente.setCellValueFactory(new PropertyValueFactory<>("dtNascCliente"));
         } catch (SQLException e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Não foi possível atualizar a tabela");
+            alert.setContentText("Erro no banco de dados do sistema!\nContate o suporte!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
         }
     }
     

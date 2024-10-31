@@ -85,6 +85,7 @@ public class FormularioAutoresController implements Initializable {
         setarFormatacoes();
     }
     
+    @FXML
     private void carregarDadosAutor() {
         AutorDAO autorDAO = new AutorDAO();
         try {
@@ -98,6 +99,17 @@ public class FormularioAutoresController implements Initializable {
             dtFaleAutor.setCellValueFactory(new PropertyValueFactory<>("dataFalecimentoAutor"));
         } catch (SQLException e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Não foi possível atualizar a tabela");
+            alert.setContentText("Erro no banco de dados do sistema!\nContate o suporte!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
         }
     }
     
