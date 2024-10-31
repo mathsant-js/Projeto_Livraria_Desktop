@@ -221,6 +221,7 @@ public class FormularioAutoresController implements Initializable {
     }
     
     private boolean verificacaoCampos() {
+        LocalDate hoje = LocalDate.now();
         if ("".equals(nomeField.getText()) && "".equals(biografiaField.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
@@ -273,11 +274,50 @@ public class FormularioAutoresController implements Initializable {
             alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
+        } else if (dtNascField.getValue() == dtFaleField.getValue()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Data de nascimento e data de falecimento iguais!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } if (dtNascField.getValue().isAfter(hoje)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Data de nascimento a frente da data atual!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
         } else if (dtFaleField.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");
             alert.setContentText("Algum dos campos está vazio ou está incorreto!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } if (dtFaleField.getValue().isAfter(hoje)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Data de falecimento a frente do dia atual!");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
