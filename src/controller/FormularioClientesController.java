@@ -25,6 +25,7 @@ import javafx.stage.Stage;
 import model.Cliente;
 import model.ClassesDAO.ClienteDAO;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -32,6 +33,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.ClassesDAO.EmailClienteDAO;
@@ -85,6 +87,7 @@ public class FormularioClientesController implements Initializable {
     
     public void initialize(URL url, ResourceBundle rb) {
         carregarDadosCliente();
+        setarFormatacoes();
     }    
     
     @FXML
@@ -237,7 +240,6 @@ public class FormularioClientesController implements Initializable {
     private void novo() {
         codField.setText("");
         nomeField.setText("");
-        nomeField.setText("");
         cpfField.setText("");
         dtNascField.setValue(null);
         emailField.setText("");
@@ -247,11 +249,12 @@ public class FormularioClientesController implements Initializable {
     }
     
     private boolean verificacaoCampos() {
+        LocalDate hoje = LocalDate.now();
         if ("".equals(nomeField.getText()) && "".equals(cpfField.getText()) && dtNascField.getValue() == null && "".equals(emailField.getText()) && "".equals(telefoneField.getText()) && "".equals(enderecoField.getText()) && "".equals(senhaField.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campos vazios!!!");
-            alert.setContentText("Todos os campos vazios!");
+            alert.setContentText("Todos os campos estão vazios");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
@@ -273,11 +276,11 @@ public class FormularioClientesController implements Initializable {
             alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
-        } else if ("".equals(cpfField.getText())) {
+        } else if ("".equals(cpfField.getText()) || cpfField.getText().length() < 14 || cpfField.getText().length() > 14) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");
-            alert.setContentText("Algum dos campos está vazio!");
+            alert.setContentText("Algum dos campos está vazio ou incorreto!");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
@@ -290,7 +293,20 @@ public class FormularioClientesController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");
-            alert.setContentText("Algum dos campos está vazio!");
+            alert.setContentText("Algum dos campos está vazio ou está incorreto!");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } if (dtNascField.getValue().isAfter(hoje)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Campo vazio!");
+            alert.setContentText("Data de nascimento a frente da data atual!");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
@@ -312,11 +328,11 @@ public class FormularioClientesController implements Initializable {
             alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
-        } else if ("".equals(telefoneField.getText())) {
+        } else if ("".equals(telefoneField.getText()) || telefoneField.getText().length() < 15 || telefoneField.getText().length() > 15) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");
-            alert.setContentText("Algum dos campos está vazio!");
+            alert.setContentText("Algum dos campos está vazio ou incorreto!");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
@@ -355,28 +371,86 @@ public class FormularioClientesController implements Initializable {
         return false;
     }
     
+    private void setarFormatacoes() {
+        setarFormatacaoNome(nomeField);
+        applyCpfMask(cpfField);
+        applyPhoneMask(telefoneField);
+        dtNascField.setPromptText("XX/XX/XXXX");
+        cpfField.setPromptText("Digite o CPF");
+        emailField.setPromptText("Digite o email");
+        telefoneField.setPromptText("Digite o telefone");
+        enderecoField.setPromptText("Digite o endereço");
+        senhaField.setPromptText("Digite a senha");
+    }
+    
+    private void setarFormatacaoNome(TextField textField) {
+        nomeField.setPromptText("Digite o nome");
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            formatacaoNome(textField, newValue);
+        });
+    }
+    
+    private void formatacaoNome(TextField textField, String newValue) {
+        if (!newValue.matches("[a-zA-Z]*")) {
+            textField.setText(newValue.replaceAll("[^a-zA-Z]", ""));
+        }
+    }
+    
+    public static void applyCpfMask(TextField textField) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            String value = newValue.replaceAll("[^0-9]", "");
+            StringBuilder formattedValue = new StringBuilder(value);
+
+            if (value.length() > 3) formattedValue.insert(3, '.');
+            if (value.length() > 6) formattedValue.insert(7, '.');
+            if (value.length() > 9) formattedValue.insert(11, '-');
+            if (value.length() > 11) formattedValue.setLength(14); // limita ao tamanho de um CPF
+            
+            textField.setText(formattedValue.toString());
+            textField.positionCaret(formattedValue.length());
+        });
+    }
+
+    public static void applyPhoneMask(TextField textField) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            String value = newValue.replaceAll("[^0-9]", "");
+            StringBuilder formattedValue = new StringBuilder(value);
+
+            if (value.length() > 0) formattedValue.insert(0, '(');
+            if (value.length() > 2) formattedValue.insert(3, ')');
+            if (value.length() > 6) formattedValue.insert(9, '-');
+            if (value.length() > 10) formattedValue.setLength(14); // limite para (XX) XXXX-XXXX
+            
+            textField.setText(formattedValue.toString());
+            textField.positionCaret(formattedValue.length());
+        });
+    }
+    
     @FXML
     private void cadastrarCliente() {
-        String nomeCliente = nomeField.getText();
-        String cpfCliente = cpfField.getText();
-        Date dtNascCliente = java.sql.Date.valueOf(dtNascField.getValue());
-        String emailCliente = emailField.getText();
-        String telefoneCliente = telefoneField.getText();
-        String enderecoCliente = enderecoField.getText();
-        String senhaCliente = senhaField.getText();
-        
-        ClienteDAO clienteDAO = new ClienteDAO();
-        EmailClienteDAO emailclienteDAO = new EmailClienteDAO();
-        TelefoneClienteDAO telefoneclienteDAO = new TelefoneClienteDAO();
-        EnderecoClienteDAO enderecoclienteDAO = new EnderecoClienteDAO();
-        
-        Cliente cliente = new Cliente(nomeCliente, cpfCliente, dtNascCliente, senhaCliente);
-        try {
-            clienteDAO.cadastrarCliente(cliente, telefoneCliente, emailCliente, enderecoCliente);
-            carregarDadosCliente();
-            novo();
-        } catch (Exception e) {
-            System.out.println("Erro ao cadastrar cliente: " + e);
+        if (verificacaoCampos()) {
+        } else {
+            String nomeCliente = nomeField.getText();
+            String cpfCliente = cpfField.getText();
+            Date dtNascCliente = java.sql.Date.valueOf(dtNascField.getValue());
+            String emailCliente = emailField.getText();
+            String telefoneCliente = telefoneField.getText();
+            String enderecoCliente = enderecoField.getText();
+            String senhaCliente = senhaField.getText();
+
+            ClienteDAO clienteDAO = new ClienteDAO();
+            EmailClienteDAO emailclienteDAO = new EmailClienteDAO();
+            TelefoneClienteDAO telefoneclienteDAO = new TelefoneClienteDAO();
+            EnderecoClienteDAO enderecoclienteDAO = new EnderecoClienteDAO();
+
+            Cliente cliente = new Cliente(nomeCliente, cpfCliente, dtNascCliente, senhaCliente);
+            try {
+                clienteDAO.cadastrarCliente(cliente, telefoneCliente, emailCliente, enderecoCliente);
+                carregarDadosCliente();
+                novo();
+            } catch (Exception e) {
+                System.out.println("Erro ao cadastrar cliente: " + e);
+            }
         }
     }
     

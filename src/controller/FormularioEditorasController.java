@@ -69,6 +69,7 @@ public class FormularioEditorasController implements Initializable {
     
     public void initialize(URL url, ResourceBundle rb) {
         carregarDadosEditora();
+        setarFormatacoes();
     }    
     
     @FXML
@@ -214,6 +215,28 @@ public class FormularioEditorasController implements Initializable {
         telefoneField.setText("");
     }
     
+    private void setarFormatacoes() {
+        applyPhoneMask(telefoneField);
+        nomeField.setPromptText("Digite o nome da editora");
+        telefoneField.setPromptText("Digite o telefone");
+        enderecoField.setPromptText("Digite o endereço");
+    }
+    
+    public static void applyPhoneMask(TextField textField) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            String value = newValue.replaceAll("[^0-9]", "");
+            StringBuilder formattedValue = new StringBuilder(value);
+
+            if (value.length() > 0) formattedValue.insert(0, '(');
+            if (value.length() > 2) formattedValue.insert(3, ')');
+            if (value.length() > 6) formattedValue.insert(9, '-');
+            if (value.length() > 10) formattedValue.setLength(14); // limite para (XX) XXXX-XXXX
+            
+            textField.setText(formattedValue.toString());
+            textField.positionCaret(formattedValue.length());
+        });
+    }
+    
     private boolean verificacaoCampos() {
         if ("".equals(nomeField.getText()) && "".equals(enderecoField.getText()) && "".equals(telefoneField.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -254,11 +277,11 @@ public class FormularioEditorasController implements Initializable {
             alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
-        } else if ("".equals(telefoneField.getText())) {
+        } else if ("".equals(telefoneField.getText()) || telefoneField.getText().length() > 14 || telefoneField.getText().length() < 14) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");
-            alert.setContentText("Algum dos campos está vazio!");
+            alert.setContentText("Algum dos campos está vazio ou está incorreto!");
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
             alert.getDialogPane().getStyleClass().add("custom-alert");
             ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));

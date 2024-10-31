@@ -242,9 +242,11 @@ public class FormularioAutoresController implements Initializable {
         setarFormatacaoNacionalidade(nacionalidadeField);
         setarData(dtNascField);
         setarData(dtFaleField);
+        biografiaField.setPromptText("Digite a biografia do autor(a)");
     }
     
     private void setarFormatacaoNome(TextField textField) {
+        nomeField.setPromptText("Digite o nome do autor(a)");
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             formatacaoNome(textField, newValue);
         });
@@ -261,6 +263,7 @@ public class FormularioAutoresController implements Initializable {
     }
     
     private void setarFormatacaoNacionalidade(TextField textField) {
+        nacionalidadeField.setPromptText("Digite a nacionalidade do autor(a)");
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             formatacaoNacionalidade(textField, newValue);
         });

@@ -64,6 +64,8 @@ public class FormularioGenerosController implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         carregarDadosGenero();
+        nomeField.setPromptText("Digite o nome do gênero");
+        descricaoField.setPromptText("Digite a descrição do gênero");
     }
 
     @FXML
