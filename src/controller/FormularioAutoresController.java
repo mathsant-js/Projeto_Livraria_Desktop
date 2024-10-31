@@ -198,6 +198,12 @@ public class FormularioAutoresController implements Initializable {
     }
     
     @FXML
+    private void abrirJanelaSobre() throws IOException {
+        SobrePrograma sobre = new SobrePrograma();
+        sobre.abrirSobre();
+    }
+    
+    @FXML
     private void abrirClienteTabela() throws IOException {
         AbrirTabelas cliente = new AbrirTabelas();
         cliente.abrirCliente(tabelaAutores);

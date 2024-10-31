@@ -169,6 +169,12 @@ public class FormularioGenerosController implements Initializable {
     }
     
     @FXML
+    private void abrirJanelaSobre() throws IOException {
+        SobrePrograma sobre = new SobrePrograma();
+        sobre.abrirSobre();
+    }
+    
+    @FXML
     private void abritAutorTabela() throws IOException {
         AbrirTabelas autor = new AbrirTabelas();
         autor.abrirAutores(tabelaGeneros);

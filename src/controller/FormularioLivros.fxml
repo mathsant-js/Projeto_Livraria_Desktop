@@ -55,7 +55,7 @@
                         <MenuItem mnemonicParsing="false" text="Reportar problema para Matheus Santana - Desenvolvedor" />
                      </items>
                   </Menu>
-                  <MenuItem mnemonicParsing="false" text="Sobre" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaSobre" text="Sobre" />
                </items>
             </Menu>
          </menus>

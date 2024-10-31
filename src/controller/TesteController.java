@@ -51,6 +51,12 @@ public class TesteController implements Initializable {
     }    
     
     @FXML
+    private void abrirJanelaSobre() throws IOException {
+        SobrePrograma sobre = new SobrePrograma();
+        sobre.abrirSobre();
+    }
+    
+    @FXML
     public void btnClientes() throws IOException{
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource( "FormularioClientes.fxml" ) );
