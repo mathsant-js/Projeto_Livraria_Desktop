@@ -200,7 +200,12 @@ public class FormularioLivrosController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmação de saída");
         alert.setContentText("Deseja realmente sair do programa?");
-        
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("custom-alert");
+        ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+        icon.setFitHeight(48);
+        icon.setFitWidth(48);
+        alert.getDialogPane().setGraphic(icon);
         Optional<ButtonType> result = alert.showAndWait();
         ButtonType button = result.orElse(ButtonType.CANCEL);
         if (button == ButtonType.OK) {
@@ -213,7 +218,12 @@ public class FormularioLivrosController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmação de retorno");
         alert.setContentText("Deseja realmente fechar esta tabela e voltar à página inicial?");
-        
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("custom-alert");
+        ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+        icon.setFitHeight(48);
+        icon.setFitWidth(48);
+        alert.getDialogPane().setGraphic(icon);
         Optional<ButtonType> result = alert.showAndWait();
         ButtonType button = result.orElse(ButtonType.CANCEL);
         if (button == ButtonType.OK) {
