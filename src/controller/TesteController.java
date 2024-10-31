@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -124,5 +130,32 @@ public class TesteController implements Initializable {
 
         Stage currentStage = (Stage) btnLivros.getScene().getWindow();
         currentStage.close();
+    }
+    
+    @FXML
+    private void voltarParaLogin() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação de saída");
+        alert.setContentText("Deseja realmente sair?\nVocê voltará para a tela de login");
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("custom-alert");
+        ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+        icon.setFitHeight(48);
+        icon.setFitWidth(48);
+        alert.getDialogPane().setGraphic(icon);
+        Optional<ButtonType> result = alert.showAndWait();
+        ButtonType button = result.orElse(ButtonType.CANCEL);
+        if (button == ButtonType.OK) {
+            Stage newStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource( "TelaLogin.fxml" ) );
+            Scene scene = new Scene(root);
+
+            newStage.setTitle("Tela Inicial");
+            newStage.setScene(scene);
+            newStage.show();
+
+            Stage currentStage = (Stage) btnSair.getScene().getWindow();
+            currentStage.close();
+        }
     }
 }

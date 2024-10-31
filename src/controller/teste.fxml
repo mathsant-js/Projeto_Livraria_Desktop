@@ -20,7 +20,15 @@
          <menus>
             <Menu mnemonicParsing="false" text="Tabela">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Abrir Tabela..." />
+                  <Menu mnemonicParsing="false" text="Abrir Tabelas...">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#btnAutores" text="Autor" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnClientes" text="Cliente" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnEditoras" text="Editora" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnGeneros" text="Gênero" />
+                        <MenuItem mnemonicParsing="false" onAction="#btnLivros" text="Livro" />
+                    </items>
+                  </Menu>
                   <MenuItem disable="true" mnemonicParsing="false" text="Atualizar tabela" />
                   <MenuItem disable="true" mnemonicParsing="false" text="Fechar Tabela" />
                   <SeparatorMenuItem mnemonicParsing="false" />
@@ -101,7 +109,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btnSair" layoutY="365.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="231.0" text="Sair">
+                  <Button fx:id="btnSair" layoutY="365.0" mnemonicParsing="false" onAction="#voltarParaLogin" prefHeight="39.0" prefWidth="231.0" text="Sair">
                      <font>
                         <Font size="18.0" />
                      </font>
