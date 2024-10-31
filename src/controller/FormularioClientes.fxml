@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="590.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioClientesController">
+<VBox prefHeight="614.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioClientesController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -55,7 +55,7 @@
     </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="800.0" prefWidth="1332.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="11.0" layoutY="45.0" onMouseClicked="#exibirClicado" prefHeight="507.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="14.0" layoutY="59.0" onMouseClicked="#exibirClicado" prefHeight="507.0" prefWidth="567.0">
               <columns>
                 <TableColumn fx:id="codCli" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeCliente" prefWidth="247.0" text="Nome" />
@@ -111,9 +111,9 @@
             </Label>
             <TextField fx:id="codField" disable="true" layoutX="627.0" layoutY="98.0" prefHeight="27.0" prefWidth="307.0" />
             <DatePicker fx:id="dtNascField" layoutX="984.0" layoutY="169.0" prefHeight="27.0" prefWidth="307.0" style="-fx-border-width: 0;" />
-            <TextField fx:id="buscaField" layoutX="173.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="406.0" />
+            <TextField fx:id="buscaField" layoutX="191.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="41.0" prefWidth="389.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
-            <Group layoutX="709.0" layoutY="405.0">
+            <Group layoutX="705.0" layoutY="413.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#novo" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
                      <font>
@@ -165,7 +165,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1205.0" layoutY="516.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1201.0" layoutY="524.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -185,7 +185,7 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
-            <Button layoutX="1076.0" layoutY="516.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
+            <Button layoutX="1072.0" layoutY="524.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
                <font>
                   <Font size="14.0" />
                </font>

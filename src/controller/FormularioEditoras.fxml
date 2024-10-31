@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="501.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioEditorasController">
+<VBox prefHeight="531.0" prefWidth="1332.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioEditorasController">
   <children>
       <MenuBar>
          <menus>
@@ -53,27 +53,27 @@
       </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="541.0" prefWidth="1247.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaEditoras" editable="true" layoutX="11.0" layoutY="45.0" onMouseClicked="#exibirClicado" prefHeight="421.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaEditoras" editable="true" layoutX="14.0" layoutY="55.0" onMouseClicked="#exibirClicado" prefHeight="421.0" prefWidth="567.0">
               <columns>
                 <TableColumn fx:id="codEditora" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeEditora" prefWidth="250.00003051757812" text="Nome" />
                   <TableColumn fx:id="enderecoEditora" prefWidth="233.0" text="Endereço" />
               </columns>
             </TableView>
-            <Label layoutX="972.0" layoutY="161.0" text="Telefone">
+            <Label layoutX="972.0" layoutY="181.0" text="Telefone">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField fx:id="telefoneField" layoutX="971.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
+            <TextField fx:id="telefoneField" layoutX="971.0" layoutY="216.0" prefHeight="27.0" prefWidth="326.0" />
             <Label layoutX="971.0" layoutY="96.0" text="Nome">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField fx:id="nomeField" layoutX="971.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
-            <TextField fx:id="enderecoField" layoutX="609.0" layoutY="182.0" prefHeight="27.0" prefWidth="326.0" />
-            <Label layoutX="609.0" layoutY="161.0" text="Endereço">
+            <TextField fx:id="nomeField" layoutX="971.0" layoutY="130.0" prefHeight="27.0" prefWidth="326.0" />
+            <TextField fx:id="enderecoField" layoutX="609.0" layoutY="216.0" prefHeight="27.0" prefWidth="326.0" />
+            <Label layoutX="609.0" layoutY="181.0" text="Endereço">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
@@ -83,10 +83,10 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <TextField fx:id="codField" disable="true" layoutX="609.0" layoutY="117.0" prefHeight="27.0" prefWidth="326.0" />
-            <TextField fx:id="buscaField" layoutX="173.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="406.0" />
+            <TextField fx:id="codField" disable="true" layoutX="609.0" layoutY="130.0" prefHeight="27.0" prefWidth="326.0" />
+            <TextField fx:id="buscaField" layoutX="190.0" layoutY="10.0" onKeyReleased="#buscar" prefHeight="41.0" prefWidth="390.0" />
             <Label layoutX="21.0" layoutY="14.0" text="Pesquisar por nome:" />
-            <Group layoutX="703.0" layoutY="312.0">
+            <Group layoutX="699.0" layoutY="326.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#novo" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
                      <font>
@@ -138,7 +138,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1205.0" layoutY="427.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1201.0" layoutY="441.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -158,7 +158,7 @@
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
-            <Button layoutX="1075.0" layoutY="427.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
+            <Button layoutX="1071.0" layoutY="441.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
                <font>
                   <Font size="14.0" />
                </font>

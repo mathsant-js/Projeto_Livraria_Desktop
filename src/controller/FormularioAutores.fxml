@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="736.0" prefWidth="1486.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioAutoresController">
+<VBox prefHeight="760.0" prefWidth="1486.0" stylesheets="@../style/mainStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularioAutoresController">
   <children>
       <MenuBar>
          <menus>
@@ -55,7 +55,7 @@
       </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="778.0" prefWidth="1173.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaAutores" editable="true" layoutX="11.0" layoutY="51.0" onMouseClicked="#exibirClicado" prefHeight="649.0" prefWidth="690.0">
+            <TableView id="Content" fx:id="tabelaAutores" editable="true" layoutX="14.0" layoutY="61.0" onMouseClicked="#exibirClicado" prefHeight="649.0" prefWidth="690.0">
               <columns>
                 <TableColumn fx:id="codAutor" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeAutor" prefWidth="203.00003051757812" text="Nome" />
@@ -81,7 +81,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </Label>
-            <Label layoutX="773.0" layoutY="145.0" prefWidth="108.0" text="Data de Nascimento">
+            <Label layoutX="773.0" layoutY="145.0" prefHeight="27.0" prefWidth="164.0" text="Data de Nascimento">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
@@ -94,9 +94,9 @@
             </Label>
             <DatePicker fx:id="dtFaleField" layoutX="1142.0" layoutY="166.0" prefHeight="27.0" prefWidth="317.0" style="-fx-border-width: 0;" />
             <TextField fx:id="nomeField" layoutX="1142.0" layoutY="99.0" prefHeight="27.0" prefWidth="317.0" />
-            <TextField fx:id="buscaField" layoutX="197.0" layoutY="11.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="504.0" />
+            <TextField fx:id="buscaField" layoutX="199.0" layoutY="11.0" onKeyReleased="#buscar" prefHeight="27.0" prefWidth="504.0" />
             <Label layoutX="21.0" layoutY="16.0" prefWidth="190.0" text="Pesquisar por nome:" />
-            <Group layoutX="866.0" layoutY="539.0">
+            <Group layoutX="865.0" layoutY="550.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#novo" prefHeight="35.0" prefWidth="113.0" text="   Novo   ">
                      <font>
@@ -148,7 +148,7 @@
                   </Button>
                </children>
             </Group>
-            <Button layoutX="1359.0" layoutY="659.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
+            <Button layoutX="1358.0" layoutY="670.0" mnemonicParsing="false" onAction="#sair" prefHeight="35.0" prefWidth="113.0" text="   Sair    ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -174,7 +174,7 @@
                </cursor>
             </Label>
             <TextArea fx:id="biografiaField" layoutX="773.0" layoutY="300.0" prefHeight="200.0" prefWidth="690.0" wrapText="true" />
-            <Button layoutX="1216.0" layoutY="659.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
+            <Button layoutX="1215.0" layoutY="670.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="113.0" text="  Voltar  ">
                <font>
                   <Font size="14.0" />
                </font>
