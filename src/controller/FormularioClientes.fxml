@@ -62,12 +62,12 @@
     </MenuBar>
 <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="800.0" prefWidth="1332.0" stylesheets="@../style/tableStyle.css">
          <children>
-            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="14.0" layoutY="59.0" onMouseClicked="#exibirClicado" prefHeight="507.0" prefWidth="567.0">
+            <TableView id="Content" fx:id="tabelaClientes" editable="true" layoutX="14.0" layoutY="59.0" onMouseClicked="#exibirClicado" prefHeight="507.0" prefWidth="568.0">
               <columns>
                 <TableColumn fx:id="codCli" prefWidth="84.0" text="Código" />
                 <TableColumn fx:id="nomeCliente" prefWidth="247.0" text="Nome" />
-                  <TableColumn fx:id="clienteCpf" prefWidth="95.0" text="CPF" />
-                  <TableColumn fx:id="dtNascCliente" prefWidth="139.0" text="Data de Nascimento" />
+                  <TableColumn fx:id="clienteCpf" prefWidth="148.0" text="CPF" />
+                  <TableColumn fx:id="dtNascCliente" prefWidth="211.0" text="Data de Nascimento" />
               </columns>
             </TableView>
             <Label layoutX="985.0" layoutY="219.0" text="Telefone">
