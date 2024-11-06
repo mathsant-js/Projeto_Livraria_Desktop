@@ -26,12 +26,14 @@ import model.Livro;
 import model.ClassesDAO.LivroDAO;
 import java.sql.*;
 import java.util.Optional;
+import java.util.function.UnaryOperator;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Autor;
@@ -92,6 +94,7 @@ public class FormularioLivrosController implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         carregarDadosLivro();
+        setarFormatacoes();
     }    
     
     @FXML
@@ -296,6 +299,64 @@ public class FormularioLivrosController implements Initializable {
         codGeneroField.setText("");
         generoField.setText("");
         descField.setText("");
+    }
+    
+    private void setarFormatacoes() {
+        tituloField.setPromptText("Digite o título do livro");
+        isbnField.setPromptText("Digite o ISBN do livro");
+        dtLancField.setPromptText("XX/XX/XXXX");
+        precoField.setPromptText("Digite o preço");
+        descField.setPromptText("Digite a descrição do livro");
+        aplicarMascaraISBN(isbnField);
+    }
+    
+    private void aplicarMascaraISBN(TextField textField) {
+            textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Remove todos os caracteres não numéricos
+            String value = newValue.replaceAll("[^0-9]", "");
+            StringBuilder formattedValue = new StringBuilder(value);
+
+            // Formata ISBN-13
+            if (value.length() >= 3) formattedValue.insert(3, '-');
+            if (value.length() >= 6) formattedValue.insert(6, '-');
+            if (value.length() >= 12) formattedValue.insert(12, '-');
+            if (value.length() >= 15) formattedValue.insert(15, '-');
+
+            // Limita a 17 caracteres para ISBN-13
+            if (formattedValue.length() >= 17) {
+                formattedValue.setLength(17); // Limita ao tamanho do ISBN-13
+            }
+
+            // Atualiza o campo de texto
+            String newFormattedValue = formattedValue.toString();
+            
+            // Evita que o cursor salte de lugar
+            int caretPosition = textField.getCaretPosition();
+            
+            if (newFormattedValue.length() < oldValue.length()) {
+                // Se o texto foi encurtado, reposiciona o cursor corretamente
+                caretPosition = Math.max(0, caretPosition - (oldValue.length() - newFormattedValue.length()));
+            } else {
+                // Mantém o cursor no final se não foi encurtado
+                caretPosition = Math.min(newFormattedValue.length(), caretPosition);
+            }
+
+            textField.setText(newFormattedValue);
+            textField.positionCaret(caretPosition);
+        });
+    }
+    
+    private TextFormatter<String> createPrecoFormatter() {
+        UnaryOperator<TextFormatter.Change> filter = change -> {
+            String newText = change.getControlNewText();
+            // Permite apenas números e um ponto
+            if (newText.matches("\\d*(\\.\\d{0,2})?")) {
+                return change; // Permite a mudança
+            }
+            return null; // Rejeita a mudança
+        };
+
+        return new TextFormatter<>(filter);
     }
     
     private boolean verificacaoCampos() {
