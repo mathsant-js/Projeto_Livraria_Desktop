@@ -328,7 +328,7 @@ public class FormularioClientesController implements Initializable {
             alert.getDialogPane().setGraphic(icon);
             alert.showAndWait();
             return true;
-        } else if ("".equals(telefoneField.getText()) || telefoneField.getText().length() < 15 || telefoneField.getText().length() > 15) {
+        } else if ("".equals(telefoneField.getText()) || telefoneField.getText().length() < 14 || telefoneField.getText().length() > 14) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mensagem do Programa");
             alert.setHeaderText("Campo vazio!");

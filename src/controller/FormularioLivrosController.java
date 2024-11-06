@@ -184,7 +184,7 @@ public class FormularioLivrosController implements Initializable {
             tituloField.setText(livro.getNomeLivro());
             isbnField.setText(livro.getIsbnLivro());
             dtLancField.setValue(livro.getDataLancamentoLivro().toLocalDate());
-            precoField.setText(Float.toString(livro.getCodLivro()));
+            precoField.setText(Float.toString(livro.getPrecoLivro()));
             codAutorField.setText(Integer.toString(livro.getCodAutor()));
             codEditoraField.setText(Integer.toString(livro.getCodEditora()));
             codGeneroField.setText(Integer.toString(livro.getCodGenero()));
@@ -308,41 +308,23 @@ public class FormularioLivrosController implements Initializable {
         precoField.setPromptText("Digite o preço");
         descField.setPromptText("Digite a descrição do livro");
         aplicarMascaraISBN(isbnField);
+        precoField.setTextFormatter(createPrecoFormatter());
     }
     
     private void aplicarMascaraISBN(TextField textField) {
             textField.textProperty().addListener((observable, oldValue, newValue) -> {
-            // Remove todos os caracteres não numéricos
             String value = newValue.replaceAll("[^0-9]", "");
             StringBuilder formattedValue = new StringBuilder(value);
 
-            // Formata ISBN-13
-            if (value.length() >= 3) formattedValue.insert(3, '-');
-            if (value.length() >= 6) formattedValue.insert(6, '-');
-            if (value.length() >= 12) formattedValue.insert(12, '-');
-            if (value.length() >= 15) formattedValue.insert(15, '-');
-
-            // Limita a 17 caracteres para ISBN-13
-            if (formattedValue.length() >= 17) {
-                formattedValue.setLength(17); // Limita ao tamanho do ISBN-13
-            }
-
-            // Atualiza o campo de texto
-            String newFormattedValue = formattedValue.toString();
+            if (value.length() > 3) formattedValue.insert(3, '-');
+            if (value.length() > 6) formattedValue.insert(6, '-');
+            if (value.length() > 11) formattedValue.insert(12, '-');
+            if (value.length() > 12) formattedValue.insert(15, '-');
+            if (value.length() > 13) formattedValue.setLength(17);
+             // limite para (XX) XXXX-XXXX
             
-            // Evita que o cursor salte de lugar
-            int caretPosition = textField.getCaretPosition();
-            
-            if (newFormattedValue.length() < oldValue.length()) {
-                // Se o texto foi encurtado, reposiciona o cursor corretamente
-                caretPosition = Math.max(0, caretPosition - (oldValue.length() - newFormattedValue.length()));
-            } else {
-                // Mantém o cursor no final se não foi encurtado
-                caretPosition = Math.min(newFormattedValue.length(), caretPosition);
-            }
-
-            textField.setText(newFormattedValue);
-            textField.positionCaret(caretPosition);
+            textField.setText(formattedValue.toString());
+            textField.positionCaret(formattedValue.length());
         });
     }
     
