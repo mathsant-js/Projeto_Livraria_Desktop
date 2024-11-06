@@ -308,7 +308,7 @@ public class FormularioLivrosController implements Initializable {
         precoField.setPromptText("Digite o preço");
         descField.setPromptText("Digite a descrição do livro");
         aplicarMascaraISBN(isbnField);
-        precoField.setTextFormatter(createPrecoFormatter());
+        precoField.setTextFormatter(criarFormatacaoPreco());
     }
     
     private void aplicarMascaraISBN(TextField textField) {
@@ -321,14 +321,13 @@ public class FormularioLivrosController implements Initializable {
             if (value.length() > 11) formattedValue.insert(12, '-');
             if (value.length() > 12) formattedValue.insert(15, '-');
             if (value.length() > 13) formattedValue.setLength(17);
-             // limite para (XX) XXXX-XXXX
             
             textField.setText(formattedValue.toString());
             textField.positionCaret(formattedValue.length());
         });
     }
     
-    private TextFormatter<String> createPrecoFormatter() {
+    private TextFormatter<String> criarFormatacaoPreco() {
         UnaryOperator<TextFormatter.Change> filter = change -> {
             String newText = change.getControlNewText();
             // Permite apenas números e um ponto
