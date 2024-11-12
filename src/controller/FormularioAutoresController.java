@@ -275,6 +275,25 @@ public class FormularioAutoresController implements Initializable {
         }
     }
     
+    private boolean verificarSelecionadoDeletar() {
+        if (tabelaAutores.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Nenhum cadastro selecionado");
+            alert.setContentText("Nenhum cadastro foi selecionado para a deleção");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     private boolean verificacaoCampos() {
         LocalDate hoje = LocalDate.now();
         if ("".equals(nomeField.getText()) && "".equals(biografiaField.getText())){
@@ -426,27 +445,30 @@ public class FormularioAutoresController implements Initializable {
     
     @FXML
     private void excluirAutor() {
-        int id = Integer.parseInt(codField.getText());
-        AutorDAO autorDAO = new AutorDAO();
-        
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Deleção de Cadastro");
-            alert.setContentText("Deseja realmente deletar o cadastro?");
-            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
-            alert.getDialogPane().getStyleClass().add("custom-alert");
-            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
-            icon.setFitHeight(48);
-            icon.setFitWidth(48);
-            alert.getDialogPane().setGraphic(icon);
-            Optional<ButtonType> result = alert.showAndWait();
-            ButtonType button = result.orElse(ButtonType.CANCEL);
-            if (button == ButtonType.OK) {
-                autorDAO.deletarAutor(id);
-                carregarDadosAutor();
+        if (verificarSelecionadoDeletar()) {
+        } else {
+            int id = Integer.parseInt(codField.getText());
+            AutorDAO autorDAO = new AutorDAO();
+
+            try {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Deleção de Cadastro");
+                alert.setContentText("Deseja realmente deletar o cadastro?");
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+                alert.getDialogPane().getStyleClass().add("custom-alert");
+                ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+                icon.setFitHeight(48);
+                icon.setFitWidth(48);
+                alert.getDialogPane().setGraphic(icon);
+                Optional<ButtonType> result = alert.showAndWait();
+                ButtonType button = result.orElse(ButtonType.CANCEL);
+                if (button == ButtonType.OK) {
+                    autorDAO.deletarAutor(id);
+                    carregarDadosAutor();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
     

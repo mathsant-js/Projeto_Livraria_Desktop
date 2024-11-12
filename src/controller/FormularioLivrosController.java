@@ -340,6 +340,25 @@ public class FormularioLivrosController implements Initializable {
         return new TextFormatter<>(filter);
     }
     
+    private boolean verificarSelecionadoDeletar() {
+        if (tabelaLivros.getSelectionModel().getSelectedItem() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensagem do Programa");
+            alert.setHeaderText("Nenhum cadastro selecionado");
+            alert.setContentText("Nenhum cadastro foi selecionado para a deleção");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+            alert.getDialogPane().getStyleClass().add("custom-alert");
+            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Warning.png"))));
+            icon.setFitHeight(48);
+            icon.setFitWidth(48);
+            alert.getDialogPane().setGraphic(icon);
+            alert.showAndWait();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     private boolean verificacaoCampos() {
         if ("".equals(tituloField.getText()) && "".equals(isbnField.getText()) && dtLancField.getValue() == null && "".equals(precoField.getText()) && "".equals(descField.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -482,27 +501,30 @@ public class FormularioLivrosController implements Initializable {
     
     @FXML
     private void excluirLivro() {
-        int id = Integer.parseInt(codField.getText());
-        LivroDAO livroDAO = new LivroDAO();
-        
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Deleção de Cadastro");
-            alert.setContentText("Deseja realmente deletar o cadastro?");
-            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
-            alert.getDialogPane().getStyleClass().add("custom-alert");
-            ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
-            icon.setFitHeight(48);
-            icon.setFitWidth(48);
-            alert.getDialogPane().setGraphic(icon);
-            Optional<ButtonType> result = alert.showAndWait();
-            ButtonType button = result.orElse(ButtonType.CANCEL);
-            if (button == ButtonType.OK) {
-                livroDAO.deletarLivro(id);
-                carregarDadosLivro();
+        if (verificarSelecionadoDeletar()) {
+        } else {
+            int id = Integer.parseInt(codField.getText());
+            LivroDAO livroDAO = new LivroDAO();
+
+            try {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Deleção de Cadastro");
+                alert.setContentText("Deseja realmente deletar o cadastro?");
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style/alert.css").toExternalForm());
+                alert.getDialogPane().getStyleClass().add("custom-alert");
+                ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/icons/Question.png"))));
+                icon.setFitHeight(48);
+                icon.setFitWidth(48);
+                alert.getDialogPane().setGraphic(icon);
+                Optional<ButtonType> result = alert.showAndWait();
+                ButtonType button = result.orElse(ButtonType.CANCEL);
+                if (button == ButtonType.OK) {
+                    livroDAO.deletarLivro(id);
+                    carregarDadosLivro();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

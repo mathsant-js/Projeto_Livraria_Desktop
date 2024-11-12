@@ -27,10 +27,10 @@
                <items>
                   <Menu mnemonicParsing="false" text="Abrir Tabela...">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#abrirClienteTabela" text="Clientes" />
-                        <MenuItem mnemonicParsing="false" onAction="#abrirEditoraTabela" text="Editoras" />
-                        <MenuItem mnemonicParsing="false" onAction="#abrirGeneroTabela" text="Generos" />
-                        <MenuItem mnemonicParsing="false" onAction="#abrirLivroTabela" text="Livros" />
+                      <MenuItem mnemonicParsing="false" onAction="#abrirClienteTabela" text="Cliente" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirEditoraTabela" text="Editora" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirGeneroTabela" text="Gênero" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirLivroTabela" text="Livro" />
                     </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#carregarDadosAutor" text="Atualizar tabela" />
