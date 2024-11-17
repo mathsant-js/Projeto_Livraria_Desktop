@@ -18,14 +18,7 @@ public class Autor {
     private Date dataFalecimentoAutor;
     private String nacionalidadeAutor;
     
-    public Autor (
-        int codAutor,
-        String nomeAutor,
-        String biografiaAutor, 
-        Date dataNascimentoAutor,
-        Date dataFalecimentoAutor,
-        String nacionalidadeAutor
-    ) {
+    public Autor (Integer codAutor, String nomeAutor, String biografiaAutor, Date dataNascimentoAutor, Date dataFalecimentoAutor, String nacionalidadeAutor) {
         this.codAutor = codAutor;
         this.nomeAutor = nomeAutor;
         this.biografiaAutor = biografiaAutor;
@@ -34,13 +27,7 @@ public class Autor {
         this.nacionalidadeAutor = nacionalidadeAutor;
     }
     
-    public Autor (
-        String nomeAutor,
-        String biografiaAutor, 
-        Date dataNascimentoAutor,
-        Date dataFalecimentoAutor,
-        String nacionalidadeAutor
-    ) {
+    public Autor (String nomeAutor, String biografiaAutor, Date dataNascimentoAutor, Date dataFalecimentoAutor, String nacionalidadeAutor) {
         this.nomeAutor = nomeAutor;
         this.biografiaAutor = biografiaAutor;
         this.dataNascimentoAutor = dataNascimentoAutor;

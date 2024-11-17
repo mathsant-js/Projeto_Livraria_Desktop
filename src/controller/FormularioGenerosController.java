@@ -4,7 +4,10 @@
  */
 package controller;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -325,10 +328,21 @@ public class FormularioGenerosController implements Initializable {
                 if (button == ButtonType.OK) {
                     generoDAO.deletarGenero(id);
                     carregarDadosGenero();
+                    novo();
                 }   
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+    }
+    
+    @FXML
+    void openLinkMatheus() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("mailto:mjorgesantana2007@gmail.com"));
+    }
+    
+    @FXML
+    void openLinkLucas() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("mailto:lucastino2007@gmail.com"));
     }
 }

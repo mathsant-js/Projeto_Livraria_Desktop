@@ -115,7 +115,7 @@ public class TelaLoginController implements Initializable {
     
     @FXML
     void openSuportLink() throws URISyntaxException, IOException {
-        Desktop.getDesktop().browse(new URI("malito:mjorgesantana2007@gmail.com"));
+        Desktop.getDesktop().browse(new URI("mailto:mjorgesantana2007@gmail.com"));
     }
     
     public void onMouseDragOverBtnLogin () {

@@ -51,8 +51,8 @@
                <items>
                   <Menu mnemonicParsing="false" text="Suporte">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Reportar problema para Lucas Tino - Desenvolvedor" />
-                        <MenuItem mnemonicParsing="false" text="Reportar problema para Matheus Santana - Desenvolvedor" />
+                        <MenuItem mnemonicParsing="false" onAction="#openLinkLucas" text="Reportar problema para Lucas Tino - Desenvolvedor" />
+                        <MenuItem mnemonicParsing="false" onAction="#openLinkMatheus" text="Reportar problema para Matheus Santana - Desenvolvedor" />
                      </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#abrirJanelaSobre" text="Sobre" />

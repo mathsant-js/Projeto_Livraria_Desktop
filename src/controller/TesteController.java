@@ -4,7 +4,10 @@
  */
 package controller;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -175,5 +178,15 @@ public class TesteController implements Initializable {
             Stage currentStage = (Stage) btnSair.getScene().getWindow();
             currentStage.close();
         }
+    }
+    
+    @FXML
+    void openLinkMatheus() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("mailto:mjorgesantana2007@gmail.com"));
+    }
+    
+    @FXML
+    void openLinkLucas() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("mailto:lucastino2007@gmail.com"));
     }
 }

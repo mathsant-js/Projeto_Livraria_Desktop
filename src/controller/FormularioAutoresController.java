@@ -4,7 +4,10 @@
  */
 package controller;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Date;
@@ -465,6 +468,7 @@ public class FormularioAutoresController implements Initializable {
                 if (button == ButtonType.OK) {
                     autorDAO.deletarAutor(id);
                     carregarDadosAutor();
+                    novo();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -472,5 +476,13 @@ public class FormularioAutoresController implements Initializable {
         }
     }
     
+    @FXML
+    void openLinkMatheus() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("mailto:mjorgesantana2007@gmail.com"));
+    }
     
+    @FXML
+    void openLinkLucas() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("mailto:lucastino2007@gmail.com"));
+    }
 }
