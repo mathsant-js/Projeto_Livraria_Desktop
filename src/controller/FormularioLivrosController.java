@@ -28,8 +28,11 @@ import javafx.stage.Stage;
 import model.Livro;
 import model.ClassesDAO.LivroDAO;
 import java.sql.*;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
@@ -98,6 +101,7 @@ public class FormularioLivrosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         carregarDadosLivro();
         setarFormatacoes();
+        precoField.setText("0.00");
     }    
     
     @FXML
@@ -179,6 +183,7 @@ public class FormularioLivrosController implements Initializable {
     private void exibirClicado() {
         int linha = tabelaLivros.getSelectionModel().getSelectedItem().getCodLivro();
         LivroDAO livroDAO = new LivroDAO();
+        DecimalFormat df = new DecimalFormat("0.00");
         
         try {
             Livro livro = livroDAO.buscarLivroPorId(linha);
@@ -187,7 +192,7 @@ public class FormularioLivrosController implements Initializable {
             tituloField.setText(livro.getNomeLivro());
             isbnField.setText(livro.getIsbnLivro());
             dtLancField.setValue(livro.getDataLancamentoLivro().toLocalDate());
-            precoField.setText(Float.toString(livro.getPrecoLivro()));
+            precoField.setText(df.format(livro.getPrecoLivro()));
             codAutorField.setText(Integer.toString(livro.getCodAutor()));
             codEditoraField.setText(Integer.toString(livro.getCodEditora()));
             codGeneroField.setText(Integer.toString(livro.getCodGenero()));
@@ -294,7 +299,7 @@ public class FormularioLivrosController implements Initializable {
         tituloField.setText("");
         isbnField.setText("");
         dtLancField.setValue(null);
-        precoField.setText("");
+        precoField.setText("0.00");
         codAutorField.setText("");
         autorField.setText("");
         codEditoraField.setText("");
@@ -311,7 +316,7 @@ public class FormularioLivrosController implements Initializable {
         precoField.setPromptText("Digite o preço");
         descField.setPromptText("Digite a descrição do livro");
         aplicarMascaraISBN(isbnField);
-        precoField.setTextFormatter(criarFormatacaoPreco());
+        criarFormatacaoPreco(precoField);
     }
     
     private void aplicarMascaraISBN(TextField textField) {
@@ -330,17 +335,18 @@ public class FormularioLivrosController implements Initializable {
         });
     }
     
-    private TextFormatter<String> criarFormatacaoPreco() {
-        UnaryOperator<TextFormatter.Change> filter = change -> {
-            String newText = change.getControlNewText();
-            // Permite apenas números e um ponto
-            if (newText.matches("\\d*(\\.\\d{0,2})?")) {
-                return change; // Permite a mudança
-            }
-            return null; // Rejeita a mudança
-        };
-
-        return new TextFormatter<>(filter);
+    private void criarFormatacaoPreco(TextField textField) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            String value = newValue.replaceAll("[^0-9]", "");
+            StringBuilder formattedValue = new StringBuilder(value);
+            DecimalFormat df = new DecimalFormat("0.00");
+            
+            if (value.length() < 3) formattedValue.replace(0, value.length(), df.format((Double.parseDouble(value) / 100)));
+            if (value.length() > 3) formattedValue.replace(0, value.length(), ((df.format((Double.parseDouble(value) / 100))).replaceFirst("^0*", "")).replaceAll("[^0-9]", "")); formattedValue.insert(value.length() - 2, '.');
+            
+            textField.setText(formattedValue.toString());
+            textField.positionCaret(formattedValue.length());
+        });
     }
     
     private boolean verificarSelecionadoDeletar() {
