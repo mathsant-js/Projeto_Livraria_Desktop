@@ -408,7 +408,7 @@ public class FormularioClientesController implements Initializable {
     private void setarFormatacaoNome(TextField textField) {
         nomeField.setPromptText("Digite o nome");
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
-            formatacaoNome(textField, newValue);
+            
         });
     }
     

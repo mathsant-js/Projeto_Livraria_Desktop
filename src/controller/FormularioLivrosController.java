@@ -197,6 +197,10 @@ public class FormularioLivrosController implements Initializable {
             codEditoraField.setText(Integer.toString(livro.getCodEditora()));
             codGeneroField.setText(Integer.toString(livro.getCodGenero()));
             descField.setText(livro.getDescricaoLivro());
+            
+            preencherAutor();
+            preencherEditora();
+            preencherGenero();
         } catch (SQLException e) {
             e.printStackTrace();
         }
